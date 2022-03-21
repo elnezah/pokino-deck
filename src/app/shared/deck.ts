@@ -6,25 +6,43 @@ export interface Card {
   cardNumber: number;
 }
 
+export interface DeckStatus {
+  totalCards: number;
+  playedCars: number;
+  remainingCards: number;
+}
+
 const suitsArray = ['oro', 'basto', 'espada', 'copa'];
 
 @Injectable({
   providedIn: 'root',
 })
-export class DeckService {
-  private static readonly TAG = 'DeckService';
+export class Deck {
+  private static readonly TAG = 'Deck';
 
   private deck: number[];
-  private pointer = 0;
+  private _pointer = -1;
 
   public constructor() {
-    this.deck = Array(40).map((e, i) => i);
+    this.deck = Array(40).fill(0).map((e, i) => i);
+  }
+
+  public get pointer(): number {
+    return this._pointer;
+  }
+
+  public get status(): DeckStatus {
+    return {
+      totalCards: this.deck.length,
+      playedCars: this._pointer + 1,
+      remainingCards: this.deck.length - (this._pointer + 1)
+    };
   }
 
   /**
    * Shuffles the deck
    */
-  public scuffle(): void {
+  public shuffle(): void {
     for (let i = this.deck.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
@@ -32,16 +50,20 @@ export class DeckService {
   }
 
   public drawOne(): Card {
-    this.pointer++;
-    if (this.pointer >= this.deck.length) {
-      this.pointer = this.deck.length - 1;
+    this._pointer++;
+    if (this._pointer >= this.deck.length) {
+      this._pointer = this.deck.length - 1;
     }
 
-    return this.idToCard(this.deck[this.pointer]);
+    return this.idToCard(this.deck[this._pointer]);
   }
 
   public reset(): void {
-    this.pointer = 0;
+    this._pointer = -1;
+  }
+
+  public asCardArray(): Card[] {
+    return this.deck.map(c => this.idToCard(c));
   }
 
   private idToCard(id: number): Card {

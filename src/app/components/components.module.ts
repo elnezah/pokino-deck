@@ -1,14 +1,14 @@
-import { DeckComponent } from './deck/deck.component';
+import { CardComponent } from './card/card.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
 
 @NgModule({
-  declarations: [DeckComponent],
+  declarations: [CardComponent],
   imports: [
     CommonModule
   ],
-  exports:[DeckComponent]
+  exports:[CardComponent]
 })
 export class ComponentsModule { }

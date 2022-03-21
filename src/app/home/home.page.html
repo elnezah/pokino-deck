@@ -7,16 +7,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-<app-deck></app-deck>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <app-card [card]="currentCard"></app-card>
+  <div>Status: {{deckStatus | json}}</div>
 </ion-content>
+
+<ion-footer>
+  <ion-button (click)="onClickOnDrawOnw()">Draw one</ion-button>
+</ion-footer>
