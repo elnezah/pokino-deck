@@ -1,16 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      El Pokino
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <app-card [card]="currentCard"></app-card>
-  <div>Status: {{deckStatus | json}}</div>
+<ion-content [fullscreen]="true" class="ion-padding" color="primary">
+  <app-card [card]="currentCard" (click)="onClickOnCard()"></app-card>
 </ion-content>
-
-<ion-footer>
-  <ion-button (click)="onClickOnDrawOnw()">Draw one</ion-button>
-</ion-footer>

@@ -29,4 +29,9 @@ export class HomePage implements OnInit {
     this.currentCard = this.deck.drawOne();
     this.deckStatus = this.deck.status;
   }
+
+  public onClickOnCard(): void {
+    this.currentCard = this.deck.drawOne();
+    this.deckStatus = this.deck.status;
+  }
 }

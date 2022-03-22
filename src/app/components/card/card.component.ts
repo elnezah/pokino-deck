@@ -25,7 +25,7 @@ export class CardComponent implements OnInit, OnChanges {
   public ngOnInit() {}
 
   public ngOnChanges(changes: SimpleChanges): void {
-    this.imgSrc = this.cardToImgFilePath(this.card);
+    this.imgSrc = this.card ? this.cardToImgFilePath(this.card) : 'assets/img/cards/reverso.png';
   }
 
   private cardToImgFilePath(c: Card): string {
