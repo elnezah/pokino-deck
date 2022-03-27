@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationController } from '@ionic/angular';
 import { Deck, Card, DeckStatus } from '../shared/deck';
 
 @Component({
@@ -14,7 +15,7 @@ export class HomePage implements OnInit {
 
   private deck = new Deck();
 
-  public constructor() {}
+  public constructor(private animationCtrl: AnimationController) {}
 
   public ngOnInit(): void {
     this.deck.shuffle();
@@ -30,8 +31,23 @@ export class HomePage implements OnInit {
     this.deckStatus = this.deck.status;
   }
 
-  public onClickOnCard(): void {
+  public async onClickOnCard(): Promise<void> {
+    const flipOut = this.animationCtrl
+      .create()
+      .addElement(document.querySelector('#currentCard'))
+      .duration(300)
+      .iterations(1)
+      .fromTo('transform', 'rotateX(0deg)', 'rotateX(90deg)');
+    const flipIn = this.animationCtrl
+      .create()
+      .addElement(document.querySelector('#currentCard'))
+      .duration(300)
+      .iterations(1)
+      .fromTo('transform', 'rotateX(-90deg)', 'rotateX(0deg)');
+
+    await flipOut.play();
     this.currentCard = this.deck.drawOne();
+    await flipIn.play();
     this.deckStatus = this.deck.status;
   }
 }
