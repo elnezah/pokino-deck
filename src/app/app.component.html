@@ -1,0 +1,19 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content"  menuId="mainSideMenu" type="overlay">
+      <ion-content>
+        <ion-list>
+          <ion-list-header>Menú principal</ion-list-header>
+          <ion-menu-toggle autoHide="false" *ngFor="let e of sideMenuEntries">
+            <ion-item [routerLink]="e.link">
+              <ion-icon slot="start" [name]="e.iconName"></ion-icon>
+              <ion-label>{{e.text}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
