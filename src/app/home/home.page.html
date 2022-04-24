@@ -7,5 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding" color="primary">
-  <app-card id="currentCard" [card]="currentCard" (click)="onClickOnCard()"></app-card>
+  <div id="card-container" [ngStyle]="{'background-image': deckStatus?.remainingCards ? 'url(\'../../assets/img/cards/reverso.png\')' : null}">
+    <app-card id="currentCard" [card]="currentCard" (click)="onClickOnCard()" style="z-index: 99999;"></app-card>
+  </div>
 </ion-content>

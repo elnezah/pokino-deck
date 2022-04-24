@@ -35,15 +35,19 @@ export class HomePage implements OnInit {
     const flipOut = this.animationCtrl
       .create()
       .addElement(document.querySelector('#currentCard'))
-      .duration(300)
+      .duration(200)
       .iterations(1)
-      .fromTo('transform', 'rotateX(0deg)', 'rotateX(90deg)');
+      .fromTo('transform', 'perspective(50em) translateX(0) rotateY(0deg)', 'perspective(50em) translateX(-80%) rotateY(90deg)');
     const flipIn = this.animationCtrl
       .create()
       .addElement(document.querySelector('#currentCard'))
-      .duration(300)
+      .duration(400)
       .iterations(1)
-      .fromTo('transform', 'rotateX(-90deg)', 'rotateX(0deg)');
+      .keyframes([
+        {offset: 0, transform:'perspective(50em) translateY(0) rotateX(-90deg)' },
+        {offset: 0.4, transform:'perspective(50em) translateY(90px) rotateX(-45deg)'},
+        {offset: 1, transform:'perspective(50em) translateY(0) rotateX(0deg)' }
+      ]);
 
     await flipOut.play();
     this.currentCard = this.deck.drawOne();
