@@ -6,6 +6,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AnimationController } from '@ionic/angular';
 import { Deck, Card, DeckStatus } from '../shared/deck';
 import { Subscription, timer } from 'rxjs';
+import { TextToSpeech } from '@capacitor-community/text-to-speech';
 
 @Component({
   selector: 'app-home',
@@ -107,5 +108,16 @@ export class HomePage implements OnInit, OnDestroy {
     this.currentCard = this.deck.drawOne();
     await flipIn.play();
     this.deckStatus = this.deck.status;
+
+    console.log(HomePage.TAG, 'voices',await TextToSpeech.getSupportedVoices());
+
+    await TextToSpeech.speak({
+      text: this.currentCard.cardNumber + ' de ' + this.currentCard.suit,
+      lang: 'es-ES',
+      rate: 1.0,
+      pitch: 1.0,
+      volume: 1.0,
+      category: 'ambient',
+    });
   }
 }
