@@ -8,26 +8,26 @@
     </ion-buttons>
     <ion-title>Auto flip</ion-title>
   </ion-toolbar>
-  </ion-header>
+</ion-header>
 
-  <ion-content>
-    <ion-item>
-      <ion-label>Flip time</ion-label>
-      <ion-chip slot="end" [color]="time ? 'primary' : 'danger'">
-        {{time ? ((time * 1000) | date: 'm:ss' ): 'Off'}}
-      </ion-chip>
-    </ion-item>
-    <ion-range min="0" max="150" dualKnobs="true" pin="true" snaps="true" step="5" ticks="true" value="0"
-      [color]="time ? 'primary' : 'danger'" (ionChange)="onRangeChange($event)">
-      <ion-icon name="rocket" slot="start"></ion-icon>
-      <ion-icon name="walk" slot="end"></ion-icon>
-    </ion-range>
-  </ion-content>
+<ion-content>
+  <ion-item>
+    <ion-label>Flip time</ion-label>
+    <ion-chip slot="end" [color]="time ? 'primary' : 'danger'">
+      {{time ? ((time * 1000) | date: 'm:ss' ): 'Off'}}
+    </ion-chip>
+  </ion-item>
+  <ion-range min="5" max="150" dualKnobs="true" pin="true" snaps="true" step="5" ticks="true" value="0"
+    [color]="time ? 'primary' : 'danger'" [value]="time" (ionChange)="onRangeChange($event)">
+    <ion-icon name="rocket" slot="start"></ion-icon>
+    <ion-icon name="walk" slot="end"></ion-icon>
+  </ion-range>
+</ion-content>
 
-  <ion-footer>
-    <ion-toolbar>
-      <ion-button (click)="onClickOnSave()" expand="block" fill="clear" shape="round">
-        Save
-      </ion-button>
-    </ion-toolbar>
-  </ion-footer>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onClickOnSave()" expand="block" fill="clear" shape="round">
+      Save
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

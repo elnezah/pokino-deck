@@ -13,7 +13,9 @@ export class AutoFlipComponent implements OnInit {
 
   public constructor(private modalController: ModalController) {}
 
-  public ngOnInit() {}
+  public ngOnInit() {
+    console.log(AutoFlipComponent.TAG, this.time);
+  }
 
   //region Listeners
   public onClickOnClose() {

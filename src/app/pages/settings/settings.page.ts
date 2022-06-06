@@ -1,4 +1,7 @@
-import { DataRepositoryService } from './../../services/data-repository.service';
+import {
+  DataRepositoryService,
+  lsKeyAutoflipTime,
+} from './../../services/data-repository.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AutoFlipComponent } from 'src/app/modals/auto-flip/auto-flip.component';
@@ -21,11 +24,18 @@ export class SettingsPage implements OnInit {
   public async onClickOnAutoFlip() {
     const modal = await this.modalController.create({
       component: AutoFlipComponent,
+      componentProps: {
+        time: Number.parseInt(await (await this.repo.localStorageCheck(lsKeyAutoflipTime)).value),
+      },
     });
 
     await modal.present();
     const res = await modal.onDidDismiss();
-    const time = res.data.time;
-    console.log(SettingsPage.TAG, { res, time });
+
+    if (res.role === 'cancel') {
+      return;
+    }
+
+    this.repo.localStorageSet(lsKeyAutoflipTime, res.data.time);
   }
 }
