@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 interface SideMenuEntry {
-  text: string;
+  textKey: string;
   iconName?: string;
   iconSrc?: string;
   link: string;
@@ -21,9 +21,13 @@ export class AppComponent implements OnInit {
   private static readonly TAG = 'AppComponent';
 
   public sideMenuEntries: SideMenuEntry[] = [
-    { text: 'Home', link: '/home', iconName: 'home' },
-    { text: 'Configuracion', link: '/settings', iconName: 'settings' },
-    { text: 'Acerca de', link: '/about', iconName: 'information-circle' },
+    {
+      textKey: 'MENU.ENTRIES.home',
+      link: '/home',
+      iconName: 'home',
+    },
+    { textKey: 'MENU.ENTRIES.settings', link: '/settings', iconName: 'settings' },
+    { textKey: 'MENU.ENTRIES.about', link: '/about', iconName: 'information-circle' },
   ];
 
   public constructor(
@@ -35,10 +39,10 @@ export class AppComponent implements OnInit {
     // Configure ngx-translate
     this.translate.setDefaultLang('es');
     try {
-    await this.translate.use(this.translate.getBrowserLang()).toPromise();
-  } catch (e) {
-    console.error(AppComponent.TAG, 'error loading browser language', e);
-  }
+      await this.translate.use(this.translate.getBrowserLang()).toPromise();
+    } catch (e) {
+      console.error(AppComponent.TAG, 'error loading browser language', e);
+    }
 
     await this.loadFactoryDefaults();
   }

@@ -1,3 +1,4 @@
+import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
+  private static readonly TAG = 'AboutPage';
 
-  constructor() { }
+  public constructor(private modalController: ModalController) {}
 
-  ngOnInit() {
-  }
-
+  public ngOnInit() {}
 }

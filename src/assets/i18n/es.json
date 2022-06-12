@@ -13,5 +13,33 @@
       "11": "caballo",
       "12": "rey"
     }
+  },
+  "HOME": {
+    "label_flip_auto": "Sacar automáticamente",
+    "label_remaining_time": "Tiempo restante"
+  },
+  "MODAL": {
+    "AUTO_FLIP": {
+      "window_title": "Sacar automáticamente",
+      "label_flip_time": "Tiempo"
+    }
+  },
+  "GENERAL": {
+    "button_save": "Guardar"
+  },
+  "SETTINGS": {
+    "window_title": "Ajustes",
+    "label_auto_flip": "Sacar automáticamente"
+  },
+  "MENU": {
+    "title_main_menu": "Menú principal",
+    "ENTRIES": {
+      "home": "'Home'",
+      "settings": "Ajustes",
+      "about": "Acerca de..."
+    }
+  },
+  "ABOUT": {
+    "window_title": "Acerca de..."
   }
 }

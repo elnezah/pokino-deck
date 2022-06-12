@@ -6,13 +6,13 @@
 
       </ion-button>
     </ion-buttons>
-    <ion-title>Auto flip</ion-title>
+    <ion-title>{{ 'MODAL.AUTO_FLIP.window_title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-label>Flip time</ion-label>
+    <ion-label>{{ 'MODAL.AUTO_FLIP.label_flip_time' | translate }}</ion-label>
     <ion-chip slot="end" [color]="time ? 'primary' : 'danger'">
       {{time ? ((time * 1000) | date: 'm:ss' ): 'Off'}}
     </ion-chip>
@@ -27,7 +27,7 @@
 <ion-footer>
   <ion-toolbar>
     <ion-button (click)="onClickOnSave()" expand="block" fill="clear" shape="round">
-      Save
+      {{ 'GENERAL.button_save' | translate }}
     </ion-button>
   </ion-toolbar>
 </ion-footer>

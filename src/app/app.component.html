@@ -3,11 +3,11 @@
     <ion-menu contentId="main-content"  menuId="mainSideMenu" type="overlay">
       <ion-content>
         <ion-list>
-          <ion-list-header>Menú principal</ion-list-header>
+          <ion-list-header>{{ 'MENU.title_main_menu' | translate }}</ion-list-header>
           <ion-menu-toggle autoHide="false" *ngFor="let e of sideMenuEntries">
             <ion-item [routerLink]="e.link">
               <ion-icon slot="start" [name]="e.iconName"></ion-icon>
-              <ion-label>{{e.text}}</ion-label>
+              <ion-label>{{e.textKey | translate}}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

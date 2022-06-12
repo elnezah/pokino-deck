@@ -1,0 +1,42 @@
+{
+  "CARD": {
+    "speak_card": "{{card_name}} of {{card_suit}}",
+    "SUITS": {
+      "oro": "coins",
+      "basto": "clubs",
+      "espada": "swords",
+      "copa": "cups"
+    },
+    "NUMBER": {
+      "1": "ace",
+      "10": "knave",
+      "11": "knight",
+      "12": "ring"
+    }
+  },
+  "HOME": {
+    "label_flip_auto": "Flip automatically",
+    "label_remaining_time": "Remaining time"
+  },
+  "MODAL": {
+    "AUTO_FLIP": {
+      "window_title": "Flip automatically",
+      "label_flip_time": "Flip time"
+    }
+  },
+  "GENERAL": {
+    "button_save": "Save"
+  },
+  "SETTINGS": {
+    "window_title": "Settings",
+    "label_auto_flip": "Flip automatically"
+  },
+  "MENU": {
+    "title_main_menu": "Main menu",
+    "ENTRIES": {
+      "home": "Home",
+      "settings": "Settings",
+      "about": "About"
+    }
+  }
+}

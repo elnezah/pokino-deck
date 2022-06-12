@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { ModalsModule } from './../../modals/modals.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +13,8 @@ import { SettingsPage } from './settings.page';
     FormsModule,
     IonicModule,
     SettingsPageRoutingModule,
-    ModalsModule
+    ModalsModule,
+    TranslateModule
   ],
   declarations: [SettingsPage]
 })

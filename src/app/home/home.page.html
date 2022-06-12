@@ -17,13 +17,13 @@
   </div>
 
   <ion-item class="ion-margin-top">
-    <ion-label>Flip automatically</ion-label>
+    <ion-label>{{'HOME.label_flip_auto' | translate}}</ion-label>
     <ion-checkbox (ionChange)="onChangeAutoflip($event)"></ion-checkbox>
   </ion-item>
 
   <ng-container *ngIf="autoflip.isOn">
     <ion-item>
-      <ion-label>Remaining time:</ion-label>
+      <ion-label>{{ 'HOME.label_remaining_time' | translate }}</ion-label>
       {{autoflip.remainingTime}}
     </ion-item>
 
