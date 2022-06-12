@@ -38,5 +38,12 @@
       "settings": "Settings",
       "about": "About"
     }
+  },
+  "ABOUT": {
+    "window_title": "About",
+    "text_copyright_pokino": "© Copyright 2017 POKINO.",
+    "text_marca_registrada": "Trade mark and game registered in Spain by Angel Luis Friazza Rodríguez and Joaquín Cuesta León.",
+    "label_app_developer": "App development",
+    "text_jose_a_garces": "Jose A. Garcés"
   }
 }

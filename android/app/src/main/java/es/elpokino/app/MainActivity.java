@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package es.elpokino.app;
 
 import com.getcapacitor.BridgeActivity;
 
