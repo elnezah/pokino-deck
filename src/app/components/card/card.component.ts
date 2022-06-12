@@ -6,7 +6,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { Card } from 'src/app/shared/deck';
+import { Card } from 'src/app/shared/card';
 
 @Component({
   selector: 'app-card',

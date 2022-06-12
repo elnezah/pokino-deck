@@ -5,6 +5,6 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [CardComponent],
   imports: [CommonModule],
-  exports: [CardComponent],
+  exports: [CardComponent]
 })
 export class ComponentsModule {}

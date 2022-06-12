@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { browser } from 'protractor';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 interface SideMenuEntry {
   text: string;
@@ -12,14 +14,20 @@ interface SideMenuEntry {
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private static readonly TAG = 'AppComponent';
 
   public sideMenuEntries: SideMenuEntry[] = [
     { text: 'Home', link: '/home', iconName: 'home' },
     { text: 'Configuracion', link: '/settings', iconName: 'settings' },
-    { text: 'Acerca de', link: '/about', iconName: 'id' }
+    { text: 'Acerca de', link: '/about', iconName: 'id' },
   ];
 
-  public constructor() {}
+  public constructor(private translate: TranslateService) {}
+
+  public async ngOnInit(): Promise<void> {
+    // Configure ngx-translate
+    this.translate.setDefaultLang('es');
+    await this.translate.use(this.translate.getBrowserLang()).toPromise();
+  }
 }

@@ -1,12 +1,13 @@
+import { TranslateService } from '@ngx-translate/core';
 import {
   DataRepositoryService,
   lsKeyAutoflipTime,
 } from './../services/data-repository.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AnimationController } from '@ionic/angular';
-import { Deck, Card, DeckStatus } from '../shared/deck';
+import { Deck, DeckStatus } from '../shared/deck';
 import { Subscription, timer } from 'rxjs';
-import { TextToSpeech } from '@capacitor-community/text-to-speech';
+import { Card } from '../shared/card';
 
 @Component({
   selector: 'app-home',
@@ -22,12 +23,13 @@ export class HomePage implements OnInit, OnDestroy {
   public autoflipTime = 0;
   public oneSecondTimer = timer(0, 1000);
 
-  private deck = new Deck();
+  private deck = new Deck(this.translate);
   private autoflipSubscription: Subscription;
 
   public constructor(
     private animationCtrl: AnimationController,
-    private repo: DataRepositoryService
+    private repo: DataRepositoryService,
+    private translate: TranslateService
   ) {}
 
   public ngOnInit(): void {
@@ -106,18 +108,11 @@ export class HomePage implements OnInit, OnDestroy {
 
     await flipOut.play();
     this.currentCard = this.deck.drawOne();
-    await flipIn.play();
-    this.deckStatus = this.deck.status;
+    setTimeout(async () => {
+      await flipIn.play();
+      this.deckStatus = this.deck.status;
 
-    console.log(HomePage.TAG, 'voices',await TextToSpeech.getSupportedVoices());
-
-    await TextToSpeech.speak({
-      text: this.currentCard.cardNumber + ' de ' + this.currentCard.suit,
-      lang: 'es-ES',
-      rate: 1.0,
-      pitch: 1.0,
-      volume: 1.0,
-      category: 'ambient',
-    });
+      this.currentCard.speak();
+    }, 100);
   }
 }

@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-
-export interface Card {
-  id: number;
-  suit: 'oro' | 'basto' | 'espada' | 'copa';
-  cardNumber: number;
-}
+import { TranslateService } from '@ngx-translate/core';
+import { Card } from './card';
 
 export interface DeckStatus {
   totalCards: number;
@@ -23,8 +19,10 @@ export class Deck {
   private deck: number[];
   private _pointer = -1;
 
-  public constructor() {
-    this.deck = Array(40).fill(0).map((e, i) => i);
+  public constructor(private translate: TranslateService) {
+    this.deck = Array(40)
+      .fill(0)
+      .map((e, i) => i);
   }
 
   public get pointer(): number {
@@ -35,7 +33,7 @@ export class Deck {
     return {
       totalCards: this.deck.length,
       playedCars: this._pointer + 1,
-      remainingCards: this.deck.length - (this._pointer + 1)
+      remainingCards: this.deck.length - (this._pointer + 1),
     };
   }
 
@@ -63,7 +61,7 @@ export class Deck {
   }
 
   public asCardArray(): Card[] {
-    return this.deck.map(c => this.idToCard(c));
+    return this.deck.map((c) => this.idToCard(c));
   }
 
   private idToCard(id: number): Card {
@@ -71,10 +69,15 @@ export class Deck {
     if (cardNumber > 7) {
       cardNumber += 2;
     }
-    return {
-      id,
-      suit: suitsArray[Math.floor(id / 10)],
-      cardNumber,
-    } as Card;
+    const res = new Card(this.translate);
+    res.id = id;
+    res.suit = suitsArray[Math.floor(id / 10)] as
+      | 'oro'
+      | 'basto'
+      | 'espada'
+      | 'copa';
+    res.cardNumber = cardNumber;
+
+    return res;
   }
 }

@@ -1,0 +1,17 @@
+{
+  "CARD": {
+    "speak_card": "{{card_name}} de {{card_suit}}",
+    "SUITS": {
+      "oro": "oro",
+      "basto": "bastos",
+      "espada": "espadas",
+      "copa": "copas"
+    },
+    "NUMBER": {
+      "1": "as",
+      "10": "sota",
+      "11": "caballo",
+      "12": "rey"
+    }
+  }
+}

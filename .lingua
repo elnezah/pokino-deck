@@ -1,0 +1,8 @@
+{
+  "translationFiles": [
+    {
+      "lang": "es",
+      "uri": "src/assets/i18n/es.json"
+    }
+  ]
+}
