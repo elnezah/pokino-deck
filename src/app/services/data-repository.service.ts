@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { GetResult, Storage } from '@capacitor/storage';
 
 // Local storage constants
+/**
+ * The amount of time (in seconds) for the cards to be flipped automatically
+ */
 export const lsKeyAutoflipTime = 'autoflipTime';
 
 @Injectable({

@@ -52,8 +52,9 @@ export class HomePage implements OnInit, OnDestroy {
     }
   }
 
-  public async onChangeAutoflip($event: CustomEvent): Promise<void> {
-    if ($event.detail.checked) {
+  public async onChangeAutoflip($event: Event): Promise<void> {
+    const customEvent = $event as CustomEvent;
+    if (customEvent.detail.checked) {
       this.autoflipTime = Number.parseInt(
         (await this.repo.localStorageCheck(lsKeyAutoflipTime)).value
       );

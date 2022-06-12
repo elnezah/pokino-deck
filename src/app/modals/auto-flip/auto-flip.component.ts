@@ -22,8 +22,8 @@ export class AutoFlipComponent implements OnInit {
     this.modalController.dismiss(null, 'cancel');
   }
 
-  public onRangeChange($event: CustomEvent): void {
-    this.time = $event.detail.value;
+  public onRangeChange($event: Event): void {
+    this.time = ($event as CustomEvent).detail.value;
   }
 
   public async onClickOnSave(): Promise<void> {

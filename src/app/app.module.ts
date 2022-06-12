@@ -1,3 +1,4 @@
+import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';

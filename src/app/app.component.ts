@@ -1,4 +1,7 @@
-import { browser } from 'protractor';
+import {
+  DataRepositoryService,
+  lsKeyAutoflipTime,
+} from './services/data-repository.service';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -20,14 +23,29 @@ export class AppComponent implements OnInit {
   public sideMenuEntries: SideMenuEntry[] = [
     { text: 'Home', link: '/home', iconName: 'home' },
     { text: 'Configuracion', link: '/settings', iconName: 'settings' },
-    { text: 'Acerca de', link: '/about', iconName: 'id' },
+    { text: 'Acerca de', link: '/about', iconName: 'information-circle' },
   ];
 
-  public constructor(private translate: TranslateService) {}
+  public constructor(
+    private repo: DataRepositoryService,
+    private translate: TranslateService
+  ) {}
 
   public async ngOnInit(): Promise<void> {
     // Configure ngx-translate
     this.translate.setDefaultLang('es');
+    try {
     await this.translate.use(this.translate.getBrowserLang()).toPromise();
+  } catch (e) {
+    console.error(AppComponent.TAG, 'error loading browser language', e);
+  }
+
+    await this.loadFactoryDefaults();
+  }
+
+  private async loadFactoryDefaults(): Promise<void> {
+    if (!(await this.repo.localStorageCheck(lsKeyAutoflipTime)).value) {
+      await this.repo.localStorageSet(lsKeyAutoflipTime, '5');
+    }
   }
 }
