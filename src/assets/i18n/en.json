@@ -29,7 +29,14 @@
   },
   "SETTINGS": {
     "window_title": "Settings",
-    "label_auto_flip": "Flip automatically"
+    "label_auto_flip": "Flip automatically",
+    "label_language_voice": "Language and voice",
+    "LANGUAGE_VOICE": {
+      "screen_title": "Language and voice",
+      "card_title_language": "Language",
+      "app_language": "App language",
+      "device_language_name":"Device's"
+    }
   },
   "MENU": {
     "title_main_menu": "Main menu",

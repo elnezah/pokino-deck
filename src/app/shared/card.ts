@@ -24,9 +24,12 @@ export class Card {
       card_suit: this.translate.instant('CARD.SUITS.' + this.suit),
     });
 
+    const lang = this.translate.currentLang === 'es' ? 'es-ES' : 'en-GB';
+
+
     await TextToSpeech.speak({
       text,
-      lang: 'es-ES',
+      lang,
       rate: 1.0,
       pitch: 1.0,
       volume: 1.0,

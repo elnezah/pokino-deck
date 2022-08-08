@@ -29,7 +29,13 @@
   },
   "SETTINGS": {
     "window_title": "Ajustes",
-    "label_auto_flip": "Sacar automáticamente"
+    "label_auto_flip": "Sacar automáticamente",
+    "label_language_voice": "Idioma y voz",
+    "LANGUAGE_VOICE": {
+      "screen_title": "Idioma y voz",
+      "app_language": "Idioma de la app",
+      "device_language_name":"del dispositivo"
+    }
   },
   "MENU": {
     "title_main_menu": "Menú principal",

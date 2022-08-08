@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{'SETTINGS.LANGUAGE_VOICE.screen_title' | translate}}
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="onClickOnClose()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        {{'SETTINGS.LANGUAGE_VOICE.app_language' | translate}}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      i
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onClickOnSave()" expand="block" fill="clear" shape="round">
+      {{'GENERAL.button_save' | translate}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
