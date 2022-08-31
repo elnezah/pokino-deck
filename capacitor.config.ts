@@ -4,7 +4,8 @@ const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
   appName: 'pokino-deck',
   webDir: 'www',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  hideLogs: true
 };
 
 export default config;

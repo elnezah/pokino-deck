@@ -13,17 +13,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        {{'SETTINGS.LANGUAGE_VOICE.app_language' | translate}}
-      </ion-card-title>
-    </ion-card-header>
+  <ion-item>
+    <ion-label>
+      {{'SETTINGS.LANGUAGE_VOICE.app_language' | translate}}
+    </ion-label>
 
-    <ion-card-content>
-      i
-    </ion-card-content>
-  </ion-card>
+    <ion-select [value]="userLanguage" [(ngModel)]="userLanguage" interface="popover">
+      <ion-select-option *ngFor="let l of appLanguages" [value]="l.code">{{l.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
 </ion-content>
 
 <ion-footer>

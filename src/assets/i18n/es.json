@@ -34,7 +34,8 @@
     "LANGUAGE_VOICE": {
       "screen_title": "Idioma y voz",
       "app_language": "Idioma de la app",
-      "device_language_name":"del dispositivo"
+      "device_language_name":"del dispositivo",
+      "placeholder_user_language_select": "Seleccione un idioma"
     }
   },
   "MENU": {

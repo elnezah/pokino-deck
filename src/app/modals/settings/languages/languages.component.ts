@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 export class LanguagesComponent implements OnInit {
   private static readonly TAG = 'LanguagesComponent';
 
-  @Input() userLanguage: string;
+  @Input() userLanguage: 'en' | 'es' | null;
   @Input() voiceSettings: { volume: number; type: string };
 
   public appLanguages: { code: string; name: string }[];
@@ -19,6 +19,10 @@ export class LanguagesComponent implements OnInit {
     private modalController: ModalController,
     private translate: TranslateService
   ) {}
+
+  public get userLanguageValue(): { code: string; name: string } {
+    return this.appLanguages.find((e) => e.code === this.userLanguage);
+  }
 
   public ngOnInit() {
     this.appLanguages = [

@@ -48,15 +48,18 @@ export class SettingsPage implements OnInit {
   }
 
   public async onClickOnLanguages() {
+    const componentProps = {
+      userLanguage: (await this.repo.localStorageCheck(lsKeyUserLanguage)).value,
+      voiceSettings: {
+        volume: (await this.repo.localStorageCheck(lsKeyVoiceVolume)).value,
+        type: (await this.repo.localStorageCheck(lsKeyVoiceType)).value,
+      },
+    };
+    console.log(componentProps);
+
     const modal = await this.modalController.create({
       component: LanguagesComponent,
-      componentProps: {
-        userLanguage: await this.repo.localStorageCheck(lsKeyUserLanguage),
-        voiceSettings: {
-          volume: await this.repo.localStorageCheck(lsKeyVoiceVolume),
-          type: await this.repo.localStorageCheck(lsKeyVoiceType),
-        },
-      },
+      componentProps
     });
 
     await modal.present();
@@ -66,16 +69,14 @@ export class SettingsPage implements OnInit {
       return;
     }
 
-    console.log(SettingsPage.TAG, 'onClickOnLanguages', { res });
-
     await this.repo.localStorageSet(lsKeyUserLanguage, res.data.userLanguage);
     await this.repo.localStorageSet(
       lsKeyVoiceVolume,
-      res.data.voiceSettings.volume.value
+      res.data.voiceSettings?.volume?.value
     );
     await this.repo.localStorageSet(
       lsKeyVoiceType,
-      res.data.voiceSettings.type.value
+      res.data.voiceSettings?.type?.value
     );
   }
 }
