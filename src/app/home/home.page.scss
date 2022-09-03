@@ -1,9 +1,14 @@
-#card-container {
-  background-image: url('../../assets/img/cards/reverso.png');
-  background-size: cover;
+#main-container {    display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow: scroll;
 
-  app-card {
-    box-shadow: 0 0 5px white;
-    display: block;
-  }
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+  background: url('../../assets/img/homepage-background.jpg') 0 0/100% 100% no-repeat;
+  background-size: cover;
+  background-position: center;
 }

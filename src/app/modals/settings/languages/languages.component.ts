@@ -27,7 +27,7 @@ export class LanguagesComponent implements OnInit {
   public ngOnInit() {
     this.appLanguages = [
       { code: 'en', name: 'English' },
-      { code: 'es', name: 'Spanish' },
+      { code: 'es', name: 'Español' },
       {
         code: null,
         name: this.translate.instant(

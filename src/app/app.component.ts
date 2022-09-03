@@ -1,6 +1,7 @@
 import {
   DataRepositoryService,
   lsKeyAutoflipTime,
+  lsKeyUserLanguage,
 } from './services/data-repository.service';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -26,8 +27,21 @@ export class AppComponent implements OnInit {
       link: '/home',
       iconName: 'home',
     },
-    { textKey: 'MENU.ENTRIES.settings', link: '/settings', iconName: 'settings' },
-    { textKey: 'MENU.ENTRIES.about', link: '/about', iconName: 'information-circle' },
+    {
+      textKey: 'MENU.ENTRIES.deck',
+      link: '/deck',
+      iconName: 'layers',
+    },
+    {
+      textKey: 'MENU.ENTRIES.settings',
+      link: '/settings',
+      iconName: 'settings',
+    },
+    {
+      textKey: 'MENU.ENTRIES.about',
+      link: '/about',
+      iconName: 'information-circle',
+    },
   ];
 
   public constructor(
@@ -39,7 +53,15 @@ export class AppComponent implements OnInit {
     // Configure ngx-translate
     this.translate.setDefaultLang('es');
     try {
-      await this.translate.use(this.translate.getBrowserLang()).toPromise();
+      const userLanguage = (
+        await this.repo.localStorageCheck(lsKeyUserLanguage)
+      ).value;
+
+      if (userLanguage) {
+        await this.translate.use(userLanguage).toPromise();
+      } else {
+        await this.translate.use(this.translate.getBrowserLang()).toPromise();
+      }
     } catch (e) {
       console.error(AppComponent.TAG, 'error loading browser language', e);
     }

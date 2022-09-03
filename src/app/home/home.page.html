@@ -5,30 +5,24 @@
     </ion-buttons>
 
     <ion-title>
-      El Pokino
+      El Pokino App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" color="primary">
-  <div id="card-container"
-    [ngStyle]="{'background-image': deckStatus?.remainingCards ? 'url(\'../../assets/img/cards/reverso.png\')' : null}">
-    <app-card id="currentCard" [card]="currentCard" (click)="onClickOnCard()" style="z-index: 99999;"></app-card>
+<ion-content [scrollX]="false" [scrollY]="false" color="primary">
+  <div id="main-container" class="ion-padding">
+    <div>
+      <ion-img src="../../assets/img/game_box_transparent.png"></ion-img>
+    </div>
+
+    <ion-button routerLink="/deck" expand="block" shape="round" size="large">
+      {{'HOME.button_start_deck' | translate}}
+    </ion-button>
+
+    <div class="ion-color-primary">
+      © Copyright 2022 POKINO
+    </div>
+
   </div>
-
-  <ion-item class="ion-margin-top">
-    <ion-label>{{'HOME.label_flip_auto' | translate}}</ion-label>
-    <ion-checkbox (ionChange)="onChangeAutoflip($event)"></ion-checkbox>
-  </ion-item>
-
-  <ng-container *ngIf="autoflip.isOn">
-    <ion-item>
-      <ion-label>{{ 'HOME.label_remaining_time' | translate }}</ion-label>
-      {{autoflip.remainingTime}}
-    </ion-item>
-
-    <ion-item>
-      <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
-    </ion-item>
-  </ng-container>
 </ion-content>

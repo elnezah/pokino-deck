@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{"DECK.window_title" | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="primary">
+  <div id="card-container"
+    [ngStyle]="{'background-image': deckStatus?.remainingCards ? 'url(\'../../assets/img/cards/reverso.png\')' : null}">
+    <app-card id="currentCard" [card]="currentCard" (click)="onClickOnCard()" style="z-index: 99999;"></app-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-item class="ion-margin-top">
+    <ion-label>{{'HOME.label_flip_auto' | translate}}</ion-label>
+    <ion-checkbox [checked]="autoflip.isOn" (ionChange)="onChangeAutoflip($event)"></ion-checkbox>
+  </ion-item>
+
+  <ng-container *ngIf="autoflip.isOn">
+    <ion-item>
+      <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
+      &nbsp;{{autoflip.remainingTime}}
+    </ion-item>
+  </ng-container>
+</ion-footer>

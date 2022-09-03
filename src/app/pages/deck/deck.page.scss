@@ -1,0 +1,9 @@
+#card-container {
+  background-image: url('../../../assets/img/cards/reverso.png');
+  background-size: cover;
+
+  app-card {
+    box-shadow: 0 0 5px white;
+    display: block;
+  }
+}

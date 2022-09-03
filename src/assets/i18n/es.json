@@ -16,7 +16,8 @@
   },
   "HOME": {
     "label_flip_auto": "Sacar automáticamente",
-    "label_remaining_time": "Tiempo restante"
+    "label_remaining_time": "Tiempo restante",
+    "button_start_deck": "Iniciar baraja"
   },
   "MODAL": {
     "AUTO_FLIP": {
@@ -34,7 +35,7 @@
     "LANGUAGE_VOICE": {
       "screen_title": "Idioma y voz",
       "app_language": "Idioma de la app",
-      "device_language_name":"del dispositivo",
+      "device_language_name": "del dispositivo",
       "placeholder_user_language_select": "Seleccione un idioma"
     }
   },
@@ -43,7 +44,8 @@
     "ENTRIES": {
       "home": "'Home'",
       "settings": "Ajustes",
-      "about": "Acerca de..."
+      "about": "Acerca de...",
+      "deck": "Baraja"
     }
   },
   "ABOUT": {
@@ -52,5 +54,8 @@
     "text_marca_registrada": "Marca y juego registrados en España por Angel Luis Friazza Rodríguez y Joaquín Cuesta León.",
     "label_app_developer": "Desarrollo App",
     "text_jose_a_garces": "Jose A. Garcés"
+  },
+  "DECK": {
+    "window_title": "Baraja"
   }
 }

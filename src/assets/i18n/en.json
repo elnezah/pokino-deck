@@ -35,7 +35,7 @@
       "screen_title": "Language and voice",
       "card_title_language": "Language",
       "app_language": "App language",
-      "device_language_name":"Device's",
+      "device_language_name": "Device's",
       "placeholder_user_language_select": "Seleccione un idioma"
     }
   },
@@ -44,7 +44,8 @@
     "ENTRIES": {
       "home": "Home",
       "settings": "Settings",
-      "about": "About"
+      "about": "About",
+      "deck": "Deck"
     }
   },
   "ABOUT": {
@@ -53,5 +54,8 @@
     "text_marca_registrada": "Trade mark and game registered in Spain by Angel Luis Friazza Rodríguez and Joaquín Cuesta León.",
     "label_app_developer": "App development",
     "text_jose_a_garces": "Jose A. Garcés"
+  },
+  "DECK": {
+    "window_title":"Deck"
   }
 }

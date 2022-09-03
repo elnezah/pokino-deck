@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import {
   DataRepositoryService,
   lsKeyAutoflipTime,
@@ -20,21 +21,19 @@ export class SettingsPage implements OnInit {
 
   public constructor(
     private modalController: ModalController,
-    private repo: DataRepositoryService
+    private repo: DataRepositoryService,
+    private translate: TranslateService
   ) {}
 
   public async ngOnInit(): Promise<void> {}
 
   public async onClickOnAutoFlip() {
+    const time = Number.parseInt(
+      (await this.repo.localStorageCheck(lsKeyAutoflipTime)).value
+    );
     const modal = await this.modalController.create({
       component: AutoFlipComponent,
-      componentProps: {
-        time: Number.parseInt(
-          await (
-            await this.repo.localStorageCheck(lsKeyAutoflipTime)
-          ).value
-        ),
-      },
+      componentProps: { time },
     });
 
     await modal.present();
@@ -44,22 +43,22 @@ export class SettingsPage implements OnInit {
       return;
     }
 
-    this.repo.localStorageSet(lsKeyAutoflipTime, res.data.time);
+    this.repo.localStorageSet(lsKeyAutoflipTime, res.data.time.toString());
   }
 
   public async onClickOnLanguages() {
     const componentProps = {
-      userLanguage: (await this.repo.localStorageCheck(lsKeyUserLanguage)).value,
+      userLanguage: (await this.repo.localStorageCheck(lsKeyUserLanguage))
+        .value,
       voiceSettings: {
         volume: (await this.repo.localStorageCheck(lsKeyVoiceVolume)).value,
         type: (await this.repo.localStorageCheck(lsKeyVoiceType)).value,
       },
     };
-    console.log(componentProps);
 
     const modal = await this.modalController.create({
       component: LanguagesComponent,
-      componentProps
+      componentProps,
     });
 
     await modal.present();
@@ -70,6 +69,9 @@ export class SettingsPage implements OnInit {
     }
 
     await this.repo.localStorageSet(lsKeyUserLanguage, res.data.userLanguage);
+    if (res.data.userLanguage) {
+      this.translate.use(res.data.userLanguage);
+    }
     await this.repo.localStorageSet(
       lsKeyVoiceVolume,
       res.data.voiceSettings?.volume?.value

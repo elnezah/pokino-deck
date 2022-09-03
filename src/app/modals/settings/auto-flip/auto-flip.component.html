@@ -17,7 +17,7 @@
       {{time ? ((time * 1000) | date: 'm:ss' ): 'Off'}}
     </ion-chip>
   </ion-item>
-  <ion-range min="5" max="150" dualKnobs="true" pin="true" snaps="true" step="5" ticks="true" value="0"
+  <ion-range min="5" max="150" pin="true" snaps="true" step="5" ticks="true" value="0"
     [color]="time ? 'primary' : 'danger'" [value]="time" (ionChange)="onRangeChange($event)">
     <ion-icon name="rocket" slot="start"></ion-icon>
     <ion-icon name="walk" slot="end"></ion-icon>

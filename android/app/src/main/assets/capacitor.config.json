@@ -3,8 +3,5 @@
 	"appName": "pokino-deck",
 	"webDir": "www",
 	"bundledWebRuntime": false,
-	"hideLogs": true,
-	"server": {
-		"url": "http://192.168.178.20:8100"
-	}
+	"hideLogs": true
 }
