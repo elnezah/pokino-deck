@@ -7,10 +7,30 @@
     <ion-title>
       {{"DECK.window_title" | translate}}
     </ion-title>
+
+    <!-- Right header button and popover menu -->
+    <ion-buttons slot="end">
+      <ion-button id="deck-menu-trigger" shape="round">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+
+      <ion-popover trigger="deck-menu-trigger" triggerAction="click" dismissOnSelect="true">
+        <ng-template>
+          <ion-item class="ion-margin-top">
+            <ion-label>{{'HOME.label_flip_auto' | translate}}</ion-label>
+            <ion-checkbox [checked]="autoflip.isOn" (ionChange)="onChangeAutoflip($event)"></ion-checkbox>
+          </ion-item>
+
+          <ion-item class="ion-margin-top" (click)="onClickOnRestart()">
+            <ion-label>{{'DECK.label_restart_deck' | translate}}</ion-label>
+          </ion-item>
+        </ng-template>
+      </ion-popover>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding" color="primary">
+<ion-content [fullscreen]="true" class="ion-padding">
   <div id="card-container"
     [ngStyle]="{'background-image': deckStatus?.remainingCards ? 'url(\'../../assets/img/cards/reverso.png\')' : null}">
     <app-card id="currentCard" [card]="currentCard" (click)="onClickOnCard()" style="z-index: 99999;"></app-card>
@@ -18,12 +38,8 @@
 </ion-content>
 
 <ion-footer>
-  <ion-item class="ion-margin-top">
-    <ion-label>{{'HOME.label_flip_auto' | translate}}</ion-label>
-    <ion-checkbox [checked]="autoflip.isOn" (ionChange)="onChangeAutoflip($event)"></ion-checkbox>
-  </ion-item>
 
-  <ng-container *ngIf="autoflip.isOn">
+  <ng-container *ngIf="autoflip?.isOn">
     <ion-item>
       <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
       &nbsp;{{autoflip.remainingTime}}

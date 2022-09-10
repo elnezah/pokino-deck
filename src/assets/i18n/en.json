@@ -1,61 +1,74 @@
 {
-  "CARD": {
-    "speak_card": "{{card_name}} of {{card_suit}}",
-    "SUITS": {
-      "oro": "coins",
-      "basto": "clubs",
-      "espada": "swords",
-      "copa": "cups"
-    },
-    "NUMBER": {
-      "1": "ace",
-      "10": "knave",
-      "11": "knight",
-      "12": "ring"
-    }
-  },
-  "HOME": {
-    "label_flip_auto": "Flip automatically",
-    "label_remaining_time": "Remaining time"
-  },
-  "MODAL": {
-    "AUTO_FLIP": {
-      "window_title": "Flip automatically",
-      "label_flip_time": "Flip time"
-    }
-  },
-  "GENERAL": {
-    "button_save": "Save"
-  },
-  "SETTINGS": {
-    "window_title": "Settings",
-    "label_auto_flip": "Flip automatically",
-    "label_language_voice": "Language and voice",
-    "LANGUAGE_VOICE": {
-      "screen_title": "Language and voice",
-      "card_title_language": "Language",
-      "app_language": "App language",
-      "device_language_name": "Device's",
-      "placeholder_user_language_select": "Seleccione un idioma"
-    }
-  },
-  "MENU": {
-    "title_main_menu": "Main menu",
-    "ENTRIES": {
-      "home": "Home",
-      "settings": "Settings",
-      "about": "About",
-      "deck": "Deck"
-    }
-  },
-  "ABOUT": {
-    "window_title": "About",
-    "text_copyright_pokino": "© Copyright 2017 POKINO.",
-    "text_marca_registrada": "Trade mark and game registered in Spain by Angel Luis Friazza Rodríguez and Joaquín Cuesta León.",
-    "label_app_developer": "App development",
-    "text_jose_a_garces": "Jose A. Garcés"
-  },
-  "DECK": {
-    "window_title":"Deck"
-  }
+   "CARD": {
+      "speak_card": "{{card_name}} of {{card_suit}}",
+      "SUITS": {
+         "oro": "coins",
+         "basto": "clubs",
+         "espada": "swords",
+         "copa": "cups"
+      },
+      "NUMBER": {
+         "1": "ace",
+         "10": "knave",
+         "11": "knight",
+         "12": "ring"
+      }
+   },
+   "HOME": {
+      "label_flip_auto": "Flip automatically",
+      "label_remaining_time": "Remaining time",
+      "button_start_deck": "Start deck"
+   },
+   "MODAL": {
+      "AUTO_FLIP": {
+         "window_title": "Flip automatically",
+         "label_flip_time": "Flip time"
+      }
+   },
+   "GENERAL": {
+      "button_save": "Save",
+      "alert_header_warning": "Attention",
+      "button_cancel": "Cancel",
+      "button_yes": "Yes",
+      "button_exit": "Exit"
+   },
+   "SETTINGS": {
+      "window_title": "Settings",
+      "label_auto_flip": "Flip automatically",
+      "label_language_voice": "Language and voice",
+      "LANGUAGE_VOICE": {
+         "screen_title": "Language and voice",
+         "card_title_language": "Language",
+         "app_language": "App language",
+         "device_language_name": "Device's",
+         "placeholder_user_language_select": "Seleccione un idioma"
+      }
+   },
+   "MENU": {
+      "title_main_menu": "Main menu",
+      "ENTRIES": {
+         "home": "Home",
+         "settings": "Settings",
+         "about": "About",
+         "deck": "Deck"
+      }
+   },
+   "ABOUT": {
+      "window_title": "About",
+      "text_copyright_pokino": "© Copyright 2017 POKINO.",
+      "text_marca_registrada": "Trade mark and game registered in Spain by Angel Luis Friazza Rodríguez and Joaquín Cuesta León.",
+      "label_app_developer": "App development",
+      "text_jose_a_garces": "Jose A. Garcés"
+   },
+   "DECK": {
+      "window_title": "Deck",
+      "alert_message_restore_saved": "There is an ongoing deck saved. Would you like to restore the saved game or start a new one?",
+      "alert_button_restore": "Restore",
+      "alert_button_new": "New",
+      "label_restart_deck": "Restart deck",
+      "alert_message_restart_deck": "Would you like to end the ongoing game and start a new deck?",
+      "alert_title_game_end": "Game end",
+      "alert_message_game_end": "This was the last card of the deck. Would you like to start a new game?",
+      "alert_button_game_end_restart": "New game"
+   }
 }

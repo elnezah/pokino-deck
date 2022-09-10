@@ -1,61 +1,74 @@
 {
-  "CARD": {
-    "speak_card": "{{card_name}} de {{card_suit}}",
-    "SUITS": {
-      "oro": "oro",
-      "basto": "bastos",
-      "espada": "espadas",
-      "copa": "copas"
-    },
-    "NUMBER": {
-      "1": "as",
-      "10": "sota",
-      "11": "caballo",
-      "12": "rey"
-    }
-  },
-  "HOME": {
-    "label_flip_auto": "Sacar automáticamente",
-    "label_remaining_time": "Tiempo restante",
-    "button_start_deck": "Iniciar baraja"
-  },
-  "MODAL": {
-    "AUTO_FLIP": {
-      "window_title": "Sacar automáticamente",
-      "label_flip_time": "Tiempo"
-    }
-  },
-  "GENERAL": {
-    "button_save": "Guardar"
-  },
-  "SETTINGS": {
-    "window_title": "Ajustes",
-    "label_auto_flip": "Sacar automáticamente",
-    "label_language_voice": "Idioma y voz",
-    "LANGUAGE_VOICE": {
-      "screen_title": "Idioma y voz",
-      "app_language": "Idioma de la app",
-      "device_language_name": "del dispositivo",
-      "placeholder_user_language_select": "Seleccione un idioma"
-    }
-  },
-  "MENU": {
-    "title_main_menu": "Menú principal",
-    "ENTRIES": {
-      "home": "'Home'",
-      "settings": "Ajustes",
-      "about": "Acerca de...",
-      "deck": "Baraja"
-    }
-  },
-  "ABOUT": {
-    "window_title": "Acerca de...",
-    "text_copyright_pokino": "© Copyright 2017 POKINO.",
-    "text_marca_registrada": "Marca y juego registrados en España por Angel Luis Friazza Rodríguez y Joaquín Cuesta León.",
-    "label_app_developer": "Desarrollo App",
-    "text_jose_a_garces": "Jose A. Garcés"
-  },
-  "DECK": {
-    "window_title": "Baraja"
-  }
+   "CARD": {
+      "speak_card": "{{card_name}} de {{card_suit}}",
+      "SUITS": {
+         "oro": "oro",
+         "basto": "bastos",
+         "espada": "espadas",
+         "copa": "copas"
+      },
+      "NUMBER": {
+         "1": "as",
+         "10": "sota",
+         "11": "caballo",
+         "12": "rey"
+      }
+   },
+   "HOME": {
+      "label_flip_auto": "Sacar automáticamente",
+      "label_remaining_time": "Tiempo restante",
+      "button_start_deck": "Iniciar baraja"
+   },
+   "MODAL": {
+      "AUTO_FLIP": {
+         "window_title": "Sacar automáticamente",
+         "label_flip_time": "Tiempo"
+      }
+   },
+   "GENERAL": {
+      "button_save": "Guardar",
+      "alert_header_warning": "Atención",
+      "button_cancel": "Cancelar",
+      "button_yes": "Sí",
+      "button_exit": "Salir"
+   },
+   "SETTINGS": {
+      "window_title": "Ajustes",
+      "label_auto_flip": "Sacar automáticamente",
+      "label_language_voice": "Idioma y voz",
+      "LANGUAGE_VOICE": {
+         "screen_title": "Idioma y voz",
+         "app_language": "Idioma de la app",
+         "device_language_name": "del dispositivo",
+         "placeholder_user_language_select": "Seleccione un idioma",
+         "card_title_language": "Idioma"
+      }
+   },
+   "MENU": {
+      "title_main_menu": "Menú principal",
+      "ENTRIES": {
+         "home": "'Home'",
+         "settings": "Ajustes",
+         "about": "Acerca de...",
+         "deck": "Baraja"
+      }
+   },
+   "ABOUT": {
+      "window_title": "Acerca de...",
+      "text_copyright_pokino": "© Copyright 2017 POKINO.",
+      "text_marca_registrada": "Marca y juego registrados en España por Angel Luis Friazza Rodríguez y Joaquín Cuesta León.",
+      "label_app_developer": "Desarrollo App",
+      "text_jose_a_garces": "Jose A. Garcés"
+   },
+   "DECK": {
+      "window_title": "Baraja",
+      "alert_message_restore_saved": "Hay una baraja ya iniciada. ¿Desea restaurar la baraja guardada o iniciar una baraja nueva?",
+      "alert_button_restore": "Restaurar",
+      "alert_button_new": "Nueva",
+      "label_restart_deck": "Reiniciar baraja",
+      "alert_message_restart_deck": "¿Quiere terminar la partida en curso y volver a barajar?",
+      "alert_title_game_end": "Fin de partida",
+      "alert_message_game_end": "Esa fue la última carta de la baraja. ¿Quiere iniciar un nuevo juego?",
+      "alert_button_game_end_restart": "Nueva partida"
+   }
 }

@@ -22,6 +22,11 @@ export const lsKeyVoiceVolume = 'lsKeyVoiceVolume';
  */
 export const lsKeyVoiceType = 'lsKeyVoiceType';
 
+/**
+ * The status of the class DeckPage last time it was saved
+ */
+export const lsKeySavedDeck = 'lsKeySavedDeck';
+
 @Injectable({
   providedIn: 'root',
 })

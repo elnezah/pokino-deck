@@ -8,6 +8,11 @@ export interface DeckStatus {
   remainingCards: number;
 }
 
+export interface DeckRestoreObject {
+  cardsArray: number[];
+  pointer: number;
+}
+
 const suitsArray = ['oro', 'basto', 'espada', 'copa'];
 
 @Injectable({
@@ -16,11 +21,11 @@ const suitsArray = ['oro', 'basto', 'espada', 'copa'];
 export class Deck {
   private static readonly TAG = 'Deck';
 
-  private deck: number[];
+  private cardsArray: number[];
   private _pointer = -1;
 
   public constructor(private translate: TranslateService) {
-    this.deck = Array(40)
+    this.cardsArray = Array(40)
       .fill(0)
       .map((e, i) => i);
   }
@@ -31,37 +36,64 @@ export class Deck {
 
   public get status(): DeckStatus {
     return {
-      totalCards: this.deck.length,
+      totalCards: this.cardsArray.length,
       playedCars: this._pointer + 1,
-      remainingCards: this.deck.length - (this._pointer + 1),
+      remainingCards: this.cardsArray.length - (this._pointer + 1),
     };
   }
 
   /**
-   * Shuffles the deck
+   * Shuffles and resets the deck
    */
   public shuffle(): void {
-    for (let i = this.deck.length - 1; i > 0; i--) {
+    for (let i = this.cardsArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
+      [this.cardsArray[i], this.cardsArray[j]] = [
+        this.cardsArray[j],
+        this.cardsArray[i],
+      ];
     }
+    this.reset();
   }
 
   public drawOne(): Card {
     this._pointer++;
-    if (this._pointer >= this.deck.length) {
-      this._pointer = this.deck.length - 1;
+    if (this._pointer >= this.cardsArray.length) {
+      this._pointer = this.cardsArray.length - 1;
     }
 
-    return this.idToCard(this.deck[this._pointer]);
+    return this.idToCard(this.cardsArray[this._pointer]);
   }
 
   public reset(): void {
     this._pointer = -1;
   }
 
+  public getCurrentCard(): Card {
+    return this.idToCard(this.cardsArray[this._pointer]);
+  }
+
+  /** Returns an object from which you can later restore the deck with the function restoreDeck */
+  public getRestoreObject(): DeckRestoreObject {
+    return {
+      cardsArray: this.cardsArray,
+      pointer: this._pointer,
+    };
+  }
+
+  /** Restores the deck to the status given by the restore object parameter. Will overwrite current deck completely. */
+  public restoreDeck(restoreObject: DeckRestoreObject): boolean {
+    if (this.pointer >= this.cardsArray.length) {
+      return false;
+    }
+
+    this.cardsArray = [...restoreObject.cardsArray];
+    this._pointer = restoreObject.pointer;
+    return true;
+  }
+
   public asCardArray(): Card[] {
-    return this.deck.map((c) => this.idToCard(c));
+    return this.cardsArray.map((c) => this.idToCard(c));
   }
 
   private idToCard(id: number): Card {
