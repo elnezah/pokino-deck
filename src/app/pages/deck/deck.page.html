@@ -21,6 +21,11 @@
             <ion-checkbox [checked]="autoflip.isOn" (ionChange)="onChangeAutoflip($event)"></ion-checkbox>
           </ion-item>
 
+          <ion-item class="ion-margin-top">
+            <ion-label>{{'HOME.label_show_status' | translate}}</ion-label>
+            <ion-checkbox [checked]="showProgress" (ionChange)="showProgress = !showProgress"></ion-checkbox>
+          </ion-item>
+
           <ion-item class="ion-margin-top" (click)="onClickOnRestart()">
             <ion-label>{{'DECK.label_restart_deck' | translate}}</ion-label>
           </ion-item>
@@ -38,6 +43,12 @@
 </ion-content>
 
 <ion-footer>
+  <ion-item *ngIf="showProgress">
+    Cartas jugadas:&nbsp;
+    <ion-progress-bar [value]="deckStatus?.playedCars / deckStatus?.totalCards"></ion-progress-bar>
+    &nbsp;{{deckStatus?.playedCars}}&nbsp;/&nbsp;{{deckStatus?.totalCards}}
+  </ion-item>
+
 
   <ng-container *ngIf="autoflip?.isOn">
     <ion-item>

@@ -28,6 +28,7 @@ export class DeckPage {
   public autoflip = { isOn: false, remainingTime: 0 };
   public autoflipTime = 0;
   public oneSecondTimer = timer(0, 1000);
+  public showProgress = true;
 
   private deck = new Deck(this.translate);
   private autoflipSubscription: Subscription;
@@ -91,7 +92,7 @@ export class DeckPage {
     }
   }
 
-  //region Listeners
+  //#region Listeners
   public onClickOnDrawOne(): void {
     this.currentCard = this.deck.drawOne();
     this.deckStatus = this.deck.status;
@@ -133,10 +134,11 @@ export class DeckPage {
 
     this.deck.shuffle();
     this.deckStatus = undefined;
+    this.currentCard = null;
     this.autoflip = { isOn: false, remainingTime: 0 };
     this.autoflipSubscription?.unsubscribe();
   }
-  //endregion
+  //#endregion
 
   private async startStopAutoflip(isStart: boolean): Promise<void> {
     if (isStart) {

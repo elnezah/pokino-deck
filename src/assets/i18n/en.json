@@ -16,6 +16,7 @@
    },
    "HOME": {
       "label_flip_auto": "Flip automatically",
+      "label_show_status": "Show status",
       "label_remaining_time": "Remaining time",
       "button_start_deck": "Start deck"
    },
