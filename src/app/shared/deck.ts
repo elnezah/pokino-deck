@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Card } from './card';
+import { Card, Suit } from './card';
 
 export interface DeckStatus {
   totalCards: number;
@@ -13,7 +13,7 @@ export interface DeckRestoreObject {
   pointer: number;
 }
 
-const suitsArray = ['oro', 'basto', 'espada', 'copa'];
+const suitsArray: Suit[] = ['oro', 'basto', 'espada', 'copa'];
 
 @Injectable({
   providedIn: 'root',
@@ -53,9 +53,13 @@ export class Deck {
         this.cardsArray[i],
       ];
     }
-    this.reset();
+    this.restart();
   }
 
+  /**
+   * Moves the pointer one forward and returns the played card
+   * @returns the played card
+   */
   public drawOne(): Card {
     this._pointer++;
     if (this._pointer >= this.cardsArray.length) {
@@ -65,7 +69,18 @@ export class Deck {
     return this.idToCard(this.cardsArray[this._pointer]);
   }
 
+  /**
+   * Resets the deck pointer, does not affect the deck order
+   */
+  public restart(): void {
+    this._pointer = -1;
+  }
+
+  /**
+   * Reset the deck pointer and sort the cards
+   */
   public reset(): void {
+    this.cardsArray = new Array(40).fill(null).map((e, i) => i);
     this._pointer = -1;
   }
 
@@ -103,11 +118,7 @@ export class Deck {
     }
     const res = new Card(this.translate);
     res.id = id;
-    res.suit = suitsArray[Math.floor(id / 10)] as
-      | 'oro'
-      | 'basto'
-      | 'espada'
-      | 'copa';
+    res.suit = suitsArray[Math.floor(id / 10)];
     res.cardNumber = cardNumber;
 
     return res;

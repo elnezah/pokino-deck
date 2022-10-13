@@ -1,11 +1,13 @@
 import { TranslateService } from '@ngx-translate/core';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
 
+export type Suit = 'oro' | 'basto' | 'espada' | 'copa';
+
 export class Card {
   private static readonly TAG = 'Card';
 
   public id: number;
-  public suit: 'oro' | 'basto' | 'espada' | 'copa';
+  public suit: Suit;
   public cardNumber: number;
 
   public constructor(private translate: TranslateService) {}

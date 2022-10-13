@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'deck',
     loadChildren: () => import('./pages/deck/deck.module').then( m => m.DeckPageModule)
   },
+  {
+    path: 'sandbox',
+    loadChildren: () => import('./pages/sandbox/sandbox.module').then( m => m.SandboxPageModule)
+  },
 ];
 
 @NgModule({
