@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { Deck } from './../../shared/deck';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-check-card-modal',
@@ -6,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./check-card-modal.component.scss'],
 })
 export class CheckCardModalComponent implements OnInit {
+  private static readonly TAG = 'CheckCardModalComponent';
 
-  constructor() { }
+  @Input() deck: Deck;
 
-  ngOnInit() {}
+  public constructor(private modalController: ModalController) {}
 
+  public ngOnInit(): void {}
+
+  public async onClickOnClose(): Promise<void> {
+    await this.modalController.dismiss(null, 'cancel');
+  }
 }

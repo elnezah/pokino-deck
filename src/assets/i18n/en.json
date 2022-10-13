@@ -70,6 +70,7 @@
       "alert_message_restart_deck": "Would you like to end the ongoing game and start a new deck?",
       "alert_title_game_end": "Game end",
       "alert_message_game_end": "This was the last card of the deck. Would you like to start a new game?",
-      "alert_button_game_end_restart": "New game"
+      "alert_button_game_end_restart": "New game",
+      "label_check_card": "Check card"
    }
 }

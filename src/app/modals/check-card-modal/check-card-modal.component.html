@@ -1,3 +1,17 @@
-<p>
-  check-card-modal works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{'MODAL.CHECK_CARD.window_title' | translate}}
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="onClickOnClose()" shape="round">
+       <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-check-card [deck]="deck"></app-check-card>
+</ion-content>

@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../components/components.module';
 import { CheckCardModalComponent } from './check-card-modal/check-card-modal.component';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -9,7 +10,7 @@ import { LanguagesComponent } from './settings/languages/languages.component';
 
 @NgModule({
   declarations: [AutoFlipComponent, LanguagesComponent, CheckCardModalComponent],
-  imports: [IonicModule, CommonModule, TranslateModule, FormsModule],
+  imports: [IonicModule, CommonModule, TranslateModule, FormsModule, ComponentsModule],
   exports: [AutoFlipComponent, LanguagesComponent, CheckCardModalComponent],
 })
 export class ModalsModule {}

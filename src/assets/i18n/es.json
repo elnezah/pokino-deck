@@ -24,6 +24,9 @@
     "AUTO_FLIP": {
       "window_title": "Sacar automáticamente",
       "label_flip_time": "Tiempo"
+    },
+    "CHECK_CARD": {
+      "window_title": "Cartón de comprobación"
     }
   },
   "GENERAL": {
@@ -70,6 +73,8 @@
     "alert_message_restart_deck": "¿Quiere terminar la partida en curso y volver a barajar?",
     "alert_title_game_end": "Fin de partida",
     "alert_message_game_end": "Esa fue la última carta de la baraja. ¿Quiere iniciar un nuevo juego?",
-    "alert_button_game_end_restart": "Nueva partida"
+    "alert_button_game_end_restart": "Nueva partida",
+    "label_check_card": "Cartón de comprobación",
+    "label_progress": "Cartas jugadas"
   }
 }

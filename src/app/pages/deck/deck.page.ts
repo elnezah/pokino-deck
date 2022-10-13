@@ -1,3 +1,4 @@
+import { CheckCardModalComponent } from './../../modals/check-card-modal/check-card-modal.component';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -9,6 +10,7 @@ import { Component } from '@angular/core';
 import {
   AlertController,
   AnimationController,
+  ModalController,
   NavController,
 } from '@ionic/angular';
 import { Deck, DeckRestoreObject, DeckStatus } from '../../shared/deck';
@@ -36,6 +38,7 @@ export class DeckPage {
   public constructor(
     private alertController: AlertController,
     private animationCtrl: AnimationController,
+    private modalController: ModalController,
     private navController: NavController,
     private repo: DataRepositoryService,
     private translate: TranslateService
@@ -75,6 +78,11 @@ export class DeckPage {
       if (res.role === 'restore') {
         this.deck.restoreDeck(savedDeck);
         this.currentCard = this.deck.getCurrentCard();
+        this.deckStatus = {
+          totalCards: 40,
+          playedCars: this.deck.pointer+1,
+          remainingCards: 40 - (this.deck.pointer + 1),
+        }
       } else {
         this.deck.shuffle();
       }
@@ -137,6 +145,14 @@ export class DeckPage {
     this.currentCard = null;
     this.autoflip = { isOn: false, remainingTime: 0 };
     this.autoflipSubscription?.unsubscribe();
+  }
+
+  public async onClickOnCheckCard(): Promise<void> {
+    const modal = await this.modalController.create({
+      component: CheckCardModalComponent,
+      componentProps: {deck: this.deck}
+    });
+    await modal.present();
   }
   //#endregion
 

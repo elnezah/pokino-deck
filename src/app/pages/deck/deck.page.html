@@ -29,6 +29,10 @@
           <ion-item class="ion-margin-top" (click)="onClickOnRestart()">
             <ion-label>{{'DECK.label_restart_deck' | translate}}</ion-label>
           </ion-item>
+
+          <ion-item class="ion-margin-top" (click)="onClickOnCheckCard()">
+            <ion-label>{{'DECK.label_check_card' | translate}}</ion-label>
+          </ion-item>
         </ng-template>
       </ion-popover>
     </ion-buttons>
@@ -44,7 +48,7 @@
 
 <ion-footer>
   <ion-item *ngIf="showProgress">
-    Cartas jugadas:&nbsp;
+    {{'DECK.label_progress' | translate}}&nbsp;
     <ion-progress-bar [value]="deckStatus?.playedCars / deckStatus?.totalCards"></ion-progress-bar>
     &nbsp;{{deckStatus?.playedCars}}&nbsp;/&nbsp;{{deckStatus?.totalCards}}
   </ion-item>

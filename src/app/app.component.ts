@@ -42,11 +42,11 @@ export class AppComponent implements OnInit {
       link: '/about',
       iconName: 'information-circle',
     },
-    {
-      textKey: 'Sandbox',
-      link: '/sandbox',
-      iconName: 'flask'
-    }
+    // {
+    //   textKey: 'Sandbox',
+    //   link: '/sandbox',
+    //   iconName: 'flask'
+    // }
   ];
 
   public constructor(
