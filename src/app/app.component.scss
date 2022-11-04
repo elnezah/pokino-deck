@@ -1,0 +1,15 @@
+.main-menu-item {
+  font-size: small;
+
+  ion-icon {}
+}
+
+ion-list {
+  padding: 0;
+
+  ion-list-header {
+    font-size: medium;
+    font-weight: 400;
+    padding-bottom: 1em;
+  }
+}

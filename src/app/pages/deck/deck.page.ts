@@ -1,5 +1,4 @@
-import { CheckCardModalComponent } from './../../modals/check-card-modal/check-card-modal.component';
-import { TextToSpeech } from '@capacitor-community/text-to-speech';
+import { CheckCardModalComponent } from '../../modals/check-card-modal/check-card-modal.component';
 import { TranslateService } from '@ngx-translate/core';
 import {
   DataRepositoryService,
@@ -16,7 +15,6 @@ import {
 import { Deck, DeckRestoreObject, DeckStatus } from '../../shared/deck';
 import { Subscription, timer } from 'rxjs';
 import { Card } from '../../shared/card';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-deck',
   templateUrl: './deck.page.html',
@@ -82,7 +80,7 @@ export class DeckPage {
           totalCards: 40,
           playedCars: this.deck.pointer+1,
           remainingCards: 40 - (this.deck.pointer + 1),
-        }
+        };
       } else {
         this.deck.shuffle();
       }
@@ -96,7 +94,7 @@ export class DeckPage {
 
     if (this.deckStatus.remainingCards > 0) {
       const savedDeck = this.deck.getRestoreObject();
-      this.repo.localStorageSet(lsKeySavedDeck, JSON.stringify(savedDeck));
+      await this.repo.localStorageSet(lsKeySavedDeck, JSON.stringify(savedDeck));
     }
   }
 
@@ -107,7 +105,7 @@ export class DeckPage {
   }
 
   public async onClickOnCard(): Promise<void> {
-    this.flipOne();
+    await this.flipOne();
     if (this.autoflip?.isOn) {
       this.autoflip.remainingTime = this.autoflipTime;
     }
@@ -214,14 +212,14 @@ export class DeckPage {
     await flipOut.play();
     this.currentCard = this.deck.drawOne();
     setTimeout(async () => {
-      await flipIn.play();
+      flipIn.play().then();
+      this.currentCard.speak().then();
       this.deckStatus = this.deck.status;
-      this.currentCard.speak();
 
       if (this.deckStatus.remainingCards === 0) {
         await this.endGame();
       }
-    }, 100);
+    }, 50);
   }
 
   private startFresh(): void {
@@ -234,7 +232,7 @@ export class DeckPage {
   }
 
   private async endGame(): Promise<void> {
-    this.repo.localStorageRemove(lsKeySavedDeck);
+    await this.repo.localStorageRemove(lsKeySavedDeck);
 
     const alert = await this.alertController.create({
       header: this.translate.instant('DECK.alert_title_game_end'),
@@ -259,6 +257,6 @@ export class DeckPage {
       return;
     }
 
-    this.navController.navigateRoot('/');
+    await this.navController.navigateRoot('/');
   }
 }

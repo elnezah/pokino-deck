@@ -25,22 +25,22 @@ export class AppComponent implements OnInit {
     {
       textKey: 'MENU.ENTRIES.home',
       link: '/home',
-      iconName: 'home',
+      iconName: 'home-outline',
     },
     {
       textKey: 'MENU.ENTRIES.deck',
       link: '/deck',
-      iconName: 'layers',
+      iconName: 'layers-outline',
     },
     {
       textKey: 'MENU.ENTRIES.settings',
       link: '/settings',
-      iconName: 'settings',
+      iconName: 'settings-outline',
     },
     {
       textKey: 'MENU.ENTRIES.about',
       link: '/about',
-      iconName: 'information-circle',
+      iconName: 'information-circle-outline',
     },
     // {
     //   textKey: 'Sandbox',

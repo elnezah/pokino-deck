@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>
       {{'SETTINGS.LANGUAGE_VOICE.screen_title' | translate}}
     </ion-title>
@@ -24,9 +24,9 @@
   </ion-item>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-button (click)="onClickOnSave()" expand="block" fill="clear" shape="round">
+<ion-footer class="ion-no-border">
+  <ion-toolbar style="--background: transparent;">
+    <ion-button (click)="onClickOnSave()" expand="block">
       {{'GENERAL.button_save' | translate}}
     </ion-button>
   </ion-toolbar>

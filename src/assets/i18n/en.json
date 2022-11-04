@@ -24,6 +24,9 @@
       "AUTO_FLIP": {
          "window_title": "Flip automatically",
          "label_flip_time": "Flip time"
+      },
+      "CHECK_CARD": {
+        "window_title": "Check card"
       }
    },
    "GENERAL": {
@@ -71,6 +74,7 @@
       "alert_title_game_end": "Game end",
       "alert_message_game_end": "This was the last card of the deck. Would you like to start a new game?",
       "alert_button_game_end_restart": "New game",
-      "label_check_card": "Check card"
+      "label_check_card": "Check card",
+      "label_progress": "Played cards"
    }
 }

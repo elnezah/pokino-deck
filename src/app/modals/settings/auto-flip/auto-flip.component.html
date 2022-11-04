@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-button (click)="onClickOnClose()">
         <ion-icon slot="start" name="close"></ion-icon>
@@ -24,9 +24,9 @@
   </ion-range>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-button (click)="onClickOnSave()" expand="block" fill="clear" shape="round">
+<ion-footer class="ion-no-border">
+  <ion-toolbar style="--background: transparent;">
+    <ion-button (click)="onClickOnSave()" expand="block">
       {{ 'GENERAL.button_save' | translate }}
     </ion-button>
   </ion-toolbar>

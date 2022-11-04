@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
 
     <ion-title>
-      {{"DECK.window_title" | translate}}
+      {{"DECK.window_title" | translate | uppercase}}
     </ion-title>
 
     <!-- Right header button and popover menu -->
@@ -47,7 +47,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-item *ngIf="showProgress">
+  <ion-item *ngIf="showProgress" color="dark">
     {{'DECK.label_progress' | translate}}&nbsp;
     <ion-progress-bar [value]="deckStatus?.playedCars / deckStatus?.totalCards"></ion-progress-bar>
     &nbsp;{{deckStatus?.playedCars}}&nbsp;/&nbsp;{{deckStatus?.totalCards}}
@@ -55,7 +55,7 @@
 
 
   <ng-container *ngIf="autoflip?.isOn">
-    <ion-item>
+    <ion-item color="dark">
       <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
       &nbsp;{{autoflip.remainingTime}}
     </ion-item>

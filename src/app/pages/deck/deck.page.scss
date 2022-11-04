@@ -9,5 +9,8 @@
 }
 
 ion-content {
-  --background: var(--ion-color-primary-tint)
+  // --background: var(--ion-color-medium, #383a3e);
+  --background: url(../../../assets/img/deck-background.jpg) no-repeat center center / cover;
+  // --background: var(--ion-color-light-tint, #383a3e);
+  // --background: var(--ion-color-dark-tint, #383a3e);
 }
