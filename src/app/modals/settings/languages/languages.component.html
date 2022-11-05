@@ -4,7 +4,7 @@
       {{'SETTINGS.LANGUAGE_VOICE.screen_title' | translate}}
     </ion-title>
 
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-button (click)="onClickOnClose()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
@@ -24,7 +24,7 @@
   </ion-item>
 </ion-content>
 
-<ion-footer class="ion-no-border">
+<ion-footer class="ion-no-border ion-padding">
   <ion-toolbar style="--background: transparent;">
     <ion-button (click)="onClickOnSave()" expand="block">
       {{'GENERAL.button_save' | translate}}

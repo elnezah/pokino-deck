@@ -54,7 +54,8 @@
       "home": "'Home'",
       "settings": "Ajustes",
       "about": "Acerca de...",
-      "deck": "Baraja"
+      "deck": "Baraja",
+      "instructions": "Instrucciones del juego"
     }
   },
   "ABOUT": {
@@ -76,5 +77,41 @@
     "alert_button_game_end_restart": "Nueva partida",
     "label_check_card": "Cartón de comprobación",
     "label_progress": "Cartas jugadas"
+  },
+  "INSTRUCTIONS": {
+    "window_title": "Instrucciones",
+    "title_how_to_play": "¿Cómo se juega a el POKINO?",
+    "text_how_to_play": "Es muy sencillo. La dinámica se parece un poco al clásico bingo, pero se juega con cartas españolas y tiene muchos más premios.",
+    "title_rules": "Reglas",
+    "text_instructions_01": "Se reparten los cartones entre los jugadores, escogidos o al azar.",
+    "text_instructions_02": "Los seis vasos se sitúan en el centro de la mesa, depositando cada jugador una ficha de juego en cada uno.",
+    "text_instructions_03": "Un jugador, elegido al azar, barajará la cartas. A continuación irá levantando y cantando una a una cada carta.",
+    "text_instructions_04": "Todos los jugadores pondrán una ficha de marcar sobre cada carta de su cartón que se cante.",
+    "text_instructions_05": "El primer jugador que consiga situar una ficha sobre todas y cada una de las cartas que componen alguna o algunas de las seis combinaciones con premio existentes en su cartón, cantará el premio o premios obtenidos.",
+    "text_instructions_06": "Tras ser comprobada la jugada, dicho jugador retirará las fichas acumuladas en el vaso o vasos correspondientes al premio o premios cantados, y, si entre éstos no se encuentra el premio de POKINO, continuará la jugada.",
+    "text_instructions_07": "Cuando un jugador cante POKINO, aún cuando sea éste el primer premio cantado, la jugada terminará.",
+    "text_instructions_08": "Todos los jugadores retirarán las fichas que haya colocado sobre sus cartones. Volverán a depositar una ficha en cada vaso (de esta forma van acumulándose los premios que no se cantan). Barajará y cantará las cartas el jugador situado a la derecha del que lo hizo anteriormente.",
+    "text_instructions_09": "Las jugadas se sucederán según lo expuesto hasta que los jugadores decidan concluir el juego, no dándose por finalizada la última jugada hasta que todos los premios se hayan cantado.",
+    "title_clarifications": "Notas aclaratorias",
+    "subtitle_clarifications": "Es importante que tengais en cuenta que:",
+    "text_clarifications_01": "Un jugador podrá obtener varios premios a la vez si, con la misma carta cantada, completa varias combinaciones con premio.",
+    "text_clarifications_02": "El jugador que cante FULL no podrá cantar POKINO en esta misma línea (línea de FULL), si bien podrá hacerlo si consigue ambos premios en líneas diferentes.",
+    "text_clarifications_03": "Si varios jugadores obtienen a la vez el mismo premio, éste se repartirá entre ellos.",
+    "text_clarifications_04": "Si un jugador obtiene un premio y no lo canta, intencionadamente o por descuido, cualquier otro podrá hacerlo por él y reclamar para sí el premio. Pero esto no podrá hacerse antes de que el jugador \"despistado\" coloque su ficha sobre la carta que completa el premio o se haya cantado la siguiente carta.",
+    "PRIZES": {
+      "title": "Combinaciones premiadas",
+      "poker_title": "Poker",
+      "poker_text": "Las cuatro cartas de igual número que hay en la primera línea horizontal de cada cartón.",
+      "full_title": "Full",
+      "full_text": "Las 5 cartas de la segunda línea horizontal de cada cartón.",
+      "esquina_title": "Esquina",
+      "esquina_text": "Consigue tapar las cuatro cartas de las esquinas de tu cartón.",
+      "centro_title": "Centro",
+      "centro_text": "Tapar la carta del centro del tablero.",
+      "estampa_title": "Estampa",
+      "estampa_text": "Logra tapar las cuatro cartas de alguna de las cuatro esquinas.",
+      "pokino_title": "Pokino",
+      "pokino_text": "Cinco cartas en línea, HORIZONTAL, VERTICAL o DIAGONAL, excepto la línea de FULL y canta POKINO!!!!!!!!!"
+    }
   }
 }

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>{{'INSTRUCTIONS.window_title' | translate}}</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" default-href="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text color="dark">
+    <h1>{{'INSTRUCTIONS.title_how_to_play' | translate}}</h1>
+    {{'INSTRUCTIONS.text_how_to_play' | translate}}
+  </ion-text>
+
+  <br />
+  <br />
+
+  <details>
+    <summary>
+      {{'INSTRUCTIONS.title_rules' | translate | uppercase}}
+    </summary>
+    <ion-text color="dark">
+      <ol>
+        <li *ngFor="let i of instructionsPoints">
+          {{'INSTRUCTIONS.text_instructions_' + i | translate}}
+        </li>
+      </ol>
+    </ion-text>
+  </details>
+
+  <br />
+  <br />
+
+  <details>
+    <summary>
+      {{'INSTRUCTIONS.title_clarifications' | translate | uppercase}}
+    </summary>
+    <ion-text color="medium">
+      <h3>
+        {{'INSTRUCTIONS.subtitle_clarifications' | translate}}
+      </h3>
+      <ol>
+        <li *ngFor="let i of clarificationsPoints">
+          {{'INSTRUCTIONS.text_clarifications_' + i | translate}}
+        </li>
+      </ol>
+    </ion-text>
+  </details>
+
+  <br />
+  <br />
+
+  <details>
+    <summary>
+      {{'INSTRUCTIONS.PRIZES.title' | translate | uppercase}}
+    </summary>
+
+    <ion-card *ngFor="let prize of prizes">
+      <ion-card-title>
+        {{prize.titleKey| translate | uppercase}}
+      </ion-card-title>
+
+      <ion-card-content>
+        <ion-img [src]="prize.imagePath"></ion-img>
+
+        <ion-text color="medium">
+          {{prize.textKey | translate}}
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </details>
+
+</ion-content>

@@ -33,6 +33,11 @@ export class AppComponent implements OnInit {
       iconName: 'layers-outline',
     },
     {
+      textKey: 'MENU.ENTRIES.instructions',
+      link: '/instructions',
+      iconName: 'book-outline',
+    },
+    {
       textKey: 'MENU.ENTRIES.settings',
       link: '/settings',
       iconName: 'settings-outline',
