@@ -52,20 +52,23 @@
   <br />
   <br />
 
+  <!-- Prizes -->
   <details>
     <summary>
       {{'INSTRUCTIONS.PRIZES.title' | translate | uppercase}}
     </summary>
 
     <ion-card *ngFor="let prize of prizes">
-      <ion-card-title>
-        {{prize.titleKey| translate | uppercase}}
-      </ion-card-title>
+      <ion-card-header>
+        <ion-card-title>
+          {{prize.titleKey| translate | uppercase}}
+        </ion-card-title>
+      </ion-card-header>
 
       <ion-card-content>
         <ion-img [src]="prize.imagePath"></ion-img>
 
-        <ion-text color="medium">
+        <ion-text color="medium" class="ion-margin-top" style="display: block;">
           {{prize.textKey | translate}}
         </ion-text>
       </ion-card-content>

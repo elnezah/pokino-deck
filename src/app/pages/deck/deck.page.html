@@ -63,7 +63,8 @@
 
   <!-- Autoflip bar -->
   <ion-item color="dark" *ngIf="autoflip?.isOn">
-    <ion-button (click)="pauseAutoflip = !pauseAutoflip" shape="round" color="primary" slot="start">
+    <ion-button (click)="pauseAutoflip = !pauseAutoflip" shape="round"
+    [color]="pauseAutoflip ? 'primary' : 'warning'" slot="start">
       <ion-icon [name]="pauseAutoflip ? 'play-outline' : 'pause-outline'"></ion-icon>
     </ion-button>
     <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
