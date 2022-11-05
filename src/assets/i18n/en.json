@@ -15,9 +15,6 @@
     }
   },
   "HOME": {
-    "label_flip_auto": "Flip automatically",
-    "label_show_status": "Show status",
-    "label_remaining_time": "Remaining time",
     "button_start_deck": "Start deck"
   },
   "MODAL": {
@@ -70,13 +67,18 @@
     "alert_message_restore_saved": "There is an ongoing deck saved. Would you like to restore the saved game or start a new one?",
     "alert_button_restore": "Restore",
     "alert_button_new": "New",
+    "label_flip_auto": "Flip automatically",
+    "label_show_status": "Show status",
+    "label_remaining_time": "Remaining time",
+    "label_voice": "Voice",
     "label_restart_deck": "Restart deck",
     "alert_message_restart_deck": "Would you like to end the ongoing game and start a new deck?",
     "alert_title_game_end": "Game end",
     "alert_message_game_end": "This was the last card of the deck. Would you like to start a new game?",
     "alert_button_game_end_restart": "New game",
     "label_check_card": "Check card",
-    "label_progress": "Played cards"
+    "label_progress": "Played cards",
+    "toast_progress_bar_help": "Indicador del progreso de la partida: muestra cuántas cartan han salido ya."
   },
   "INSTRUCTIONS": {
     "window_title": "Instructions",

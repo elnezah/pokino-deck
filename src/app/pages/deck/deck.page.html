@@ -17,13 +17,18 @@
       <ion-popover trigger="deck-menu-trigger" triggerAction="click" dismissOnSelect="true">
         <ng-template>
           <ion-item class="ion-margin-top">
-            <ion-label>{{'HOME.label_flip_auto' | translate}}</ion-label>
+            <ion-label>{{'DECK.label_flip_auto' | translate}}</ion-label>
             <ion-checkbox [checked]="autoflip.isOn" (ionChange)="onChangeAutoflip($event)"></ion-checkbox>
           </ion-item>
 
           <ion-item class="ion-margin-top">
-            <ion-label>{{'HOME.label_show_status' | translate}}</ion-label>
+            <ion-label>{{'DECK.label_show_status' | translate}}</ion-label>
             <ion-checkbox [checked]="showProgress" (ionChange)="showProgress = !showProgress"></ion-checkbox>
+          </ion-item>
+
+          <ion-item class="ion-margin-top">
+            <ion-label>{{'DECK.label_voice' | translate}}</ion-label>
+            <ion-checkbox [checked]="voice" (ionChange)="voice = !voice"></ion-checkbox>
           </ion-item>
 
           <ion-item class="ion-margin-top" (click)="onClickOnRestart()">
@@ -47,17 +52,23 @@
 </ion-content>
 
 <ion-footer>
-  <ion-item *ngIf="showProgress" color="dark">
-    {{'DECK.label_progress' | translate}}&nbsp;
+  <!-- Progress bar -->
+  <ion-item *ngIf="showProgress" color="dark" (click)="onClickOnProgressBar()">
+    <ion-icon slot="start" name="layers-outline"></ion-icon>
     <ion-progress-bar [value]="deckStatus?.playedCars / deckStatus?.totalCards"></ion-progress-bar>
-    &nbsp;{{deckStatus?.playedCars}}&nbsp;/&nbsp;{{deckStatus?.totalCards}}
+    <ion-text color="light" slot="end">
+      {{deckStatus?.playedCars}}&nbsp;/&nbsp;{{deckStatus?.totalCards}}
+    </ion-text>
   </ion-item>
 
-
-  <ng-container *ngIf="autoflip?.isOn">
-    <ion-item color="dark">
-      <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
-      &nbsp;{{autoflip.remainingTime}}
-    </ion-item>
-  </ng-container>
+  <!-- Autoflip bar -->
+  <ion-item color="dark" *ngIf="autoflip?.isOn">
+    <ion-button (click)="pauseAutoflip = !pauseAutoflip" shape="round" color="primary" slot="start">
+      <ion-icon [name]="pauseAutoflip ? 'play-outline' : 'pause-outline'"></ion-icon>
+    </ion-button>
+    <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
+    <ion-text color="light" slot="end">
+      {{autoflip.remainingTime}}&nbsp;s
+    </ion-text>
+  </ion-item>
 </ion-footer>

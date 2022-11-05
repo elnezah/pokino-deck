@@ -11,6 +11,7 @@ import {
   AnimationController,
   ModalController,
   NavController,
+  ToastController,
 } from '@ionic/angular';
 import { Deck, DeckRestoreObject, DeckStatus } from '../../shared/deck';
 import { Subscription, timer } from 'rxjs';
@@ -29,6 +30,8 @@ export class DeckPage {
   public autoflipTime = 0;
   public oneSecondTimer = timer(0, 1000);
   public showProgress = true;
+  public voice = true;
+  public pauseAutoflip = false;
 
   private deck = new Deck(this.translate);
   private autoflipSubscription: Subscription;
@@ -39,6 +42,7 @@ export class DeckPage {
     private modalController: ModalController,
     private navController: NavController,
     private repo: DataRepositoryService,
+    private toastController: ToastController,
     private translate: TranslateService
   ) {}
 
@@ -78,7 +82,7 @@ export class DeckPage {
         this.currentCard = this.deck.getCurrentCard();
         this.deckStatus = {
           totalCards: 40,
-          playedCars: this.deck.pointer+1,
+          playedCars: this.deck.pointer + 1,
           remainingCards: 40 - (this.deck.pointer + 1),
         };
       } else {
@@ -94,7 +98,10 @@ export class DeckPage {
 
     if (this.deckStatus.remainingCards > 0) {
       const savedDeck = this.deck.getRestoreObject();
-      await this.repo.localStorageSet(lsKeySavedDeck, JSON.stringify(savedDeck));
+      await this.repo.localStorageSet(
+        lsKeySavedDeck,
+        JSON.stringify(savedDeck)
+      );
     }
   }
 
@@ -148,9 +155,17 @@ export class DeckPage {
   public async onClickOnCheckCard(): Promise<void> {
     const modal = await this.modalController.create({
       component: CheckCardModalComponent,
-      componentProps: {deck: this.deck}
+      componentProps: { deck: this.deck },
     });
     await modal.present();
+  }
+
+  public async onClickOnProgressBar(): Promise<void> {
+    const toast = await this.toastController.create({
+      message: this.translate.instant('DECK.toast_progress_bar_help'),
+      duration: 1500,
+    });
+    await toast.present();
   }
   //#endregion
 
@@ -166,6 +181,10 @@ export class DeckPage {
       };
 
       this.autoflipSubscription = this.oneSecondTimer.subscribe(async () => {
+        if (this.pauseAutoflip) {
+          return;
+        }
+
         this.autoflip.remainingTime--;
         if (this.autoflip.remainingTime <= 0) {
           await this.flipOne();
@@ -179,6 +198,7 @@ export class DeckPage {
   }
 
   private async flipOne(): Promise<void> {
+    // Setup animations
     const flipOut = this.animationCtrl
       .create()
       .addElement(document.querySelector('#currentCard'))
@@ -209,11 +229,14 @@ export class DeckPage {
         },
       ]);
 
+    // Play animation and voice
     await flipOut.play();
     this.currentCard = this.deck.drawOne();
     setTimeout(async () => {
       flipIn.play().then();
-      this.currentCard.speak().then();
+      if (this.voice) {
+        this.currentCard.speak().then();
+      }
       this.deckStatus = this.deck.status;
 
       if (this.deckStatus.remainingCards === 0) {
