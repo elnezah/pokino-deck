@@ -47,6 +47,10 @@ export class DeckPage {
   ) {}
 
   public async ionViewDidEnter(): Promise<void> {
+    this.startStopAutoflip(false);
+    this.pauseAutoflip = false;
+
+    // Deal with saved deck
     let savedDeck: DeckRestoreObject;
 
     // Try to get saved deck if any
@@ -59,34 +63,32 @@ export class DeckPage {
     }
 
     if (savedDeck) {
-      // Show alert and restore deck if user wants
-      const alert = await this.alertController.create({
-        header: this.translate.instant('GENERAL.alert_header_warning'),
-        message: this.translate.instant('DECK.alert_message_restore_saved'),
-        buttons: [
-          {
-            text: this.translate.instant('DECK.alert_button_restore'),
-            role: 'restore',
-          },
-          {
-            text: this.translate.instant('DECK.alert_button_new'),
-            role: 'new',
-          },
-        ],
-      });
-      await alert.present();
-      const res = await alert.onDidDismiss();
+      if (this.isSavedDeckDifferent(savedDeck)) {
+        // Show alert and restore deck if user wants
+        const alert = await this.alertController.create({
+          header: this.translate.instant('GENERAL.alert_header_warning'),
+          message: this.translate.instant('DECK.alert_message_restore_saved'),
+          buttons: [
+            {
+              text: this.translate.instant('DECK.alert_button_restore'),
+              role: 'restore',
+            },
+            {
+              text: this.translate.instant('DECK.alert_button_new'),
+              role: 'new',
+            },
+          ],
+        });
+        await alert.present();
+        const res = await alert.onDidDismiss();
 
-      if (res.role === 'restore') {
-        this.deck.restoreDeck(savedDeck);
-        this.currentCard = this.deck.getCurrentCard();
-        this.deckStatus = {
-          totalCards: 40,
-          playedCars: this.deck.pointer + 1,
-          remainingCards: 40 - (this.deck.pointer + 1),
-        };
+        if (res.role === 'restore') {
+          this.restoreDeck(savedDeck);
+        } else {
+          this.deck.shuffle();
+        }
       } else {
-        this.deck.shuffle();
+        this.restoreDeck(savedDeck);
       }
     } else {
       this.startFresh();
@@ -159,16 +161,31 @@ export class DeckPage {
     });
     await modal.present();
   }
+  //#endregion
 
-  public async onClickOnProgressBar(): Promise<void> {
+  public async showHelp(subject: 'autoflipBar' | 'progressBar'): Promise<void> {
+    let message: string;
+    let duration = 2000;
+    switch (subject) {
+      case 'autoflipBar':
+        message = this.translate.instant('DECK.toast_autoflip_bar_help');
+        break;
+      case 'progressBar':
+        message = this.translate.instant('DECK.toast_progress_bar_help');
+        break;
+    }
     const toast = await this.toastController.create({
-      message: this.translate.instant('DECK.toast_progress_bar_help'),
-      duration: 1500,
+      message,
+      duration,
+      buttons: [
+        {
+          icon: 'close',
+          handler: () => toast.dismiss(),
+        },
+      ],
     });
     await toast.present();
   }
-  //#endregion
-
   private async startStopAutoflip(isStart: boolean): Promise<void> {
     if (isStart) {
       const userAutoflip = (
@@ -248,7 +265,7 @@ export class DeckPage {
   private startFresh(): void {
     this.deck.shuffle();
     this.currentCard = undefined;
-    this.deckStatus = undefined;
+    this.deckStatus = { playedCars: 0, totalCards: 40, remainingCards: 40 };
     this.autoflip = { isOn: false, remainingTime: 0 };
     this.autoflipSubscription?.unsubscribe();
     this.autoflipTime = 0;
@@ -281,5 +298,31 @@ export class DeckPage {
     }
 
     await this.navController.navigateRoot('/');
+  }
+
+  private restoreDeck(savedDeck: DeckRestoreObject): void {
+    this.deck.restoreDeck(savedDeck);
+    this.currentCard = this.deck.getCurrentCard();
+    this.deckStatus = {
+      totalCards: 40,
+      playedCars: this.deck.pointer + 1,
+      remainingCards: 40 - (this.deck.pointer + 1),
+    };
+  }
+
+  /**
+   * Checks whether a given DeckRestoreObject has the same data as the already present in this.
+   * @return true is the data is different, false if is the same
+   */
+  private isSavedDeckDifferent(savedDeck: DeckRestoreObject): boolean {
+    const thisCardsArray = this.deck.asCardArray();
+
+    for (let i = 0; i < thisCardsArray.length; i++) {
+      if (savedDeck.cardsArray[i] !== thisCardsArray[i].id) {
+        return true;
+      }
+    }
+
+    return savedDeck.pointer !== this.deck.pointer;
   }
 }

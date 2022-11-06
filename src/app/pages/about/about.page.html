@@ -9,23 +9,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-       {{ 'ABOUT.text_copyright_pokino' | translate }}
-      </ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content>
+<ion-content class="ion-padding">
+  <ion-item class="ion-no-padding">
+    <ion-text color="dark">
+      <h1>{{ 'ABOUT.text_copyright_pokino' | translate }}</h1>
       {{ 'ABOUT.text_marca_registrada' | translate }}
-    </ion-card-content>
-  </ion-card>
+    </ion-text>
+  </ion-item>
 
-  <ion-card>
-<ion-card-header>
-  <ion-card-subtitle>{{ 'ABOUT.label_app_developer' | translate }}</ion-card-subtitle>
-  <ion-card-title>{{ 'ABOUT.text_jose_a_garces' | translate }}</ion-card-title>
-</ion-card-header>
-  </ion-card>
+  <ion-item class="ion-no-padding">
+    <ion-text color="dark">
+      <h1>{{ 'ABOUT.label_app_developer' | translate }}</h1>
+      {{ 'ABOUT.text_jose_a_garces' | translate }}
+    </ion-text>
+  </ion-item>
 </ion-content>

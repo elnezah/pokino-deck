@@ -53,7 +53,7 @@
 
 <ion-footer>
   <!-- Progress bar -->
-  <ion-item *ngIf="showProgress" color="dark" (click)="onClickOnProgressBar()">
+  <ion-item *ngIf="showProgress" color="dark" (click)="showHelp('progressBar')">
     <ion-icon slot="start" name="layers-outline"></ion-icon>
     <ion-progress-bar [value]="deckStatus?.playedCars / deckStatus?.totalCards"></ion-progress-bar>
     <ion-text color="light" slot="end">
@@ -67,7 +67,8 @@
     [color]="pauseAutoflip ? 'primary' : 'warning'" slot="start">
       <ion-icon [name]="pauseAutoflip ? 'play-outline' : 'pause-outline'"></ion-icon>
     </ion-button>
-    <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"></ion-progress-bar>
+    <ion-progress-bar [value]="autoflip.remainingTime / autoflipTime"
+    (click)="showHelp('autoflipBar')"></ion-progress-bar>
     <ion-text color="light" slot="end">
       {{autoflip.remainingTime}}&nbsp;s
     </ion-text>

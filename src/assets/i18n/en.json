@@ -78,7 +78,8 @@
     "alert_button_game_end_restart": "New game",
     "label_check_card": "Check card",
     "label_progress": "Played cards",
-    "toast_progress_bar_help": "Indicador del progreso de la partida: muestra cuántas cartan han salido ya."
+    "toast_progress_bar_help": "Game progress indicator: shows how many cards have been played already.",
+    "toast_autoflip_bar_help": "You can set se autoflip time in the app settings."
   },
   "INSTRUCTIONS": {
     "window_title": "Instructions",

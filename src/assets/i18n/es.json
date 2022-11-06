@@ -78,7 +78,8 @@
     "alert_button_game_end_restart": "Nueva partida",
     "label_check_card": "Cartón de comprobación",
     "label_progress": "Cartas jugadas",
-    "toast_progress_bar_help": "Indicador del progreso de la partida: muestra cuántas cartan han salido ya."
+    "toast_progress_bar_help": "Indicador del progreso de la partida: muestra cuántas cartan han salido ya.",
+    "toast_autoflip_bar_help": "Puedes ajustar el tiempo en la configuración de la app"
   },
   "INSTRUCTIONS": {
     "window_title": "Instrucciones",

@@ -1,11 +1,19 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" menuId="mainSideMenu" type="overlay">
+      <ion-header>
+        <ion-toolbar color="dark" class="ion-align-startio">
+          <ion-buttons slot="start">
+            <ion-menu-toggle>
+              <ion-button>
+                <ion-icon name="close"></ion-icon>
+              </ion-button>
+            </ion-menu-toggle>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
       <ion-content color="dark">
         <ion-list>
-          <ion-list-header color="dark">
-            {{ 'MENU.title_main_menu' | translate | uppercase }}
-          </ion-list-header>
           <ion-menu-toggle autoHide="false" *ngFor="let e of sideMenuEntries">
             <ion-item [routerLink]="e.link" color="dark" class="main-menu-item">
               <ion-icon slot="start" [name]="e.iconName"></ion-icon>
