@@ -6,15 +6,16 @@ import { Card } from '../shared/card';
   providedIn: 'root',
 })
 export class ToolboxService {
-  private static readonly cTAG = 'ToolboxService';
+  private static readonly TAG = 'ToolboxService';
 
   public constructor(private translate: TranslateService) {}
 
   public addLeadingZeros(n: number, totalLength = 0): string {
     let nu = n.toString();
     while (nu.length < totalLength) {
-      nu = 0 + nu;
+      nu = '0' + nu;
     }
+
     return nu;
   }
 

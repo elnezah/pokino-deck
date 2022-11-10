@@ -29,8 +29,8 @@ export class CardComponent implements OnInit, OnChanges {
   }
 
   private cardToImgFilePath(c: Card): string {
-    if (!c) {
-      return null;
+    if (!c || isNaN(c.cardNumber) || c.id == null || c.suit == null ) {
+      return 'assets/img/cards/reverso.png';
     }
     const id = this.tb.addLeadingZeros(c.id, 2);
     const n = this.tb.addLeadingZeros(c.cardNumber, 2);

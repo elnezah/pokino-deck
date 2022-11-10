@@ -85,7 +85,7 @@ export class DeckPage {
         if (res.role === 'restore') {
           this.restoreDeck(savedDeck);
         } else {
-          this.deck.shuffle();
+          this.startFresh();
         }
       } else {
         this.restoreDeck(savedDeck);
@@ -104,6 +104,8 @@ export class DeckPage {
         lsKeySavedDeck,
         JSON.stringify(savedDeck)
       );
+    } else {
+      await this.repo.localStorageRemove(lsKeySavedDeck);
     }
   }
 
@@ -147,11 +149,7 @@ export class DeckPage {
       return;
     }
 
-    this.deck.shuffle();
-    this.deckStatus = undefined;
-    this.currentCard = null;
-    this.autoflip = { isOn: false, remainingTime: 0 };
-    this.autoflipSubscription?.unsubscribe();
+    this.startFresh();
   }
 
   public async onClickOnCheckCard(): Promise<void> {
@@ -186,6 +184,7 @@ export class DeckPage {
     });
     await toast.present();
   }
+
   private async startStopAutoflip(isStart: boolean): Promise<void> {
     if (isStart) {
       const userAutoflip = (
@@ -262,13 +261,17 @@ export class DeckPage {
     }, 50);
   }
 
-  private startFresh(): void {
+  /**
+   * Shuffles the deck, resets everything and delete saved deck
+   */
+  private async startFresh(): Promise<void> {
     this.deck.shuffle();
     this.currentCard = undefined;
     this.deckStatus = { playedCars: 0, totalCards: 40, remainingCards: 40 };
     this.autoflip = { isOn: false, remainingTime: 0 };
     this.autoflipSubscription?.unsubscribe();
     this.autoflipTime = 0;
+    await this.repo.localStorageRemove(lsKeySavedDeck);
   }
 
   private async endGame(): Promise<void> {
@@ -308,6 +311,16 @@ export class DeckPage {
       playedCars: this.deck.pointer + 1,
       remainingCards: 40 - (this.deck.pointer + 1),
     };
+    if (this.deck.pointer === -1) {
+      this.currentCard = undefined;
+    }
+
+    console.log(DeckPage.TAG, 'restoreDeck', {
+      savedDeck,
+      deck: this.deck,
+      currentCard: this.currentCard,
+      deckStatus: this.deckStatus,
+    });
   }
 
   /**
