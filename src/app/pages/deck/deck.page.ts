@@ -68,6 +68,7 @@ export class DeckPage {
         const alert = await this.alertController.create({
           header: this.translate.instant('GENERAL.alert_header_warning'),
           message: this.translate.instant('DECK.alert_message_restore_saved'),
+          backdropDismiss: false,
           buttons: [
             {
               text: this.translate.instant('DECK.alert_button_restore'),
@@ -314,13 +315,6 @@ export class DeckPage {
     if (this.deck.pointer === -1) {
       this.currentCard = undefined;
     }
-
-    console.log(DeckPage.TAG, 'restoreDeck', {
-      savedDeck,
-      deck: this.deck,
-      currentCard: this.currentCard,
-      deckStatus: this.deckStatus,
-    });
   }
 
   /**
