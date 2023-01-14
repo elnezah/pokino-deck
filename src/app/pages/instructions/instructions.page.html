@@ -16,63 +16,61 @@
 
   <br />
   <br />
+  <ion-accordion-group>
+    <!-- Rules -->
+    <ion-accordion>
+      <ion-item slot="header">
+        {{'INSTRUCTIONS.title_rules' | translate | uppercase}}
+      </ion-item>
+      <ion-text color="dark" slot="content">
+        <ol>
+          <li *ngFor="let i of instructionsPoints">
+            {{'INSTRUCTIONS.text_instructions_' + i | translate}}
+          </li>
+        </ol>
+      </ion-text>
+    </ion-accordion>
 
-  <details>
-    <summary>
-      {{'INSTRUCTIONS.title_rules' | translate | uppercase}}
-    </summary>
-    <ion-text color="dark">
-      <ol>
-        <li *ngFor="let i of instructionsPoints">
-          {{'INSTRUCTIONS.text_instructions_' + i | translate}}
-        </li>
-      </ol>
-    </ion-text>
-  </details>
+    <!-- Notes -->
+    <ion-accordion>
+      <ion-item slot="header">
+        {{'INSTRUCTIONS.title_clarifications' | translate | uppercase}}
+      </ion-item>
+      <ion-text color="medium" slot="content">
+        <h3>
+          {{'INSTRUCTIONS.subtitle_clarifications' | translate}}
+        </h3>
+        <ol>
+          <li *ngFor="let i of clarificationsPoints">
+            {{'INSTRUCTIONS.text_clarifications_' + i | translate}}
+          </li>
+        </ol>
+      </ion-text>
+    </ion-accordion>
 
-  <br />
-  <br />
+    <!-- Prizes -->
+    <ion-accordion>
+      <ion-item slot="header">
+        {{'INSTRUCTIONS.PRIZES.title' | translate | uppercase}}
+      </ion-item>
 
-  <details>
-    <summary>
-      {{'INSTRUCTIONS.title_clarifications' | translate | uppercase}}
-    </summary>
-    <ion-text color="medium">
-      <h3>
-        {{'INSTRUCTIONS.subtitle_clarifications' | translate}}
-      </h3>
-      <ol>
-        <li *ngFor="let i of clarificationsPoints">
-          {{'INSTRUCTIONS.text_clarifications_' + i | translate}}
-        </li>
-      </ol>
-    </ion-text>
-  </details>
+      <div slot="content">
+        <ion-card *ngFor="let prize of prizes">
+          <ion-card-header>
+            <ion-card-title>
+              {{prize.titleKey| translate | uppercase}}
+            </ion-card-title>
+          </ion-card-header>
 
-  <br />
-  <br />
+          <ion-card-content>
+            <ion-img [src]="prize.imagePath"></ion-img>
 
-  <!-- Prizes -->
-  <details>
-    <summary>
-      {{'INSTRUCTIONS.PRIZES.title' | translate | uppercase}}
-    </summary>
-
-    <ion-card *ngFor="let prize of prizes">
-      <ion-card-header>
-        <ion-card-title>
-          {{prize.titleKey| translate | uppercase}}
-        </ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        <ion-img [src]="prize.imagePath"></ion-img>
-
-        <ion-text color="medium" class="ion-margin-top" style="display: block;">
-          {{prize.textKey | translate}}
-        </ion-text>
-      </ion-card-content>
-    </ion-card>
-  </details>
-
+            <ion-text color="medium" class="ion-margin-top" style="display: block;">
+              {{prize.textKey | translate}}
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

@@ -1,6 +1,9 @@
 #card-container {
   background-image: url('../../../assets/img/cards/reverso.png');
   background-size: cover;
+  width: fit-content;
+  margin: auto;
+  border-radius: 3vw;
 
   app-card {
     box-shadow: 0 0 5px white;
@@ -9,8 +12,5 @@
 }
 
 ion-content {
-  // --background: var(--ion-color-medium, #383a3e);
   --background: url(../../../assets/img/deck-background.jpg) no-repeat center center / cover;
-  // --background: var(--ion-color-light-tint, #383a3e);
-  // --background: var(--ion-color-dark-tint, #383a3e);
 }

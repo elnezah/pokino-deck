@@ -1,3 +1,9 @@
+:host {
+  // aspect-ratio: 1090 / 920;
+  border-radius: 3vw;
+  overflow: hidden;
+}
+
 .card-component-container {
   display: flex;
   flex-direction: column;
@@ -9,5 +15,5 @@
 }
 
 .card-padding {
-  padding: var(--card-padding, 1.5em);
+  padding: var(--card-padding, 0);
 }
