@@ -2,11 +2,11 @@
   <tr *ngFor="let row of cardsToShow">
     <td *ngFor="let card of row">
       <div class="card-container">
-      <div>
-        <app-card [card]="card.card" style="--card-padding: 0.1em"
-          [ngStyle]="{opacity: card.isPlayed ? '80%' : '100%'}">
-        </app-card>
-      </div>
+        <div>
+          <app-card [card]="card.card" style="--card-padding: 0.1em"
+            [ngStyle]="{opacity: card.isPlayed ? '80%' : '100%'}">
+          </app-card>
+        </div>
 
         <div class="check-mark" *ngIf="card.isPlayed">
           &nbsp;

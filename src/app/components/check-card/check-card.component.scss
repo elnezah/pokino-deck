@@ -5,9 +5,13 @@
   align-items: center;
   padding: var(--padding, 0);
   background: transparent;
+  margin: .2em;
+  border-radius: .4em;
+  overflow: hidden;
 }
 
-.check-mark {    height: 2.5em;
+.check-mark {
+  height: 2.5em;
   width: 2.5em;
   border-radius: 50vh;
   background: #dd8f08;
