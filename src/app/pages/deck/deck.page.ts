@@ -1,3 +1,9 @@
+import {
+  lsKeyVoiceType,
+  lsKeyVoicePitch,
+  lsKeyVoiceSpeed,
+  lsKeyVoiceVolume,
+} from './../../services/data-repository.service';
 import { CheckCardModalComponent } from '../../modals/check-card-modal/check-card-modal.component';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -33,6 +39,10 @@ export class DeckPage {
   public voice = true;
   public pauseAutoflip = false;
 
+  private userVoiceType: string;
+  private userVoiceSpeed: number;
+  private userVoiceVolume: number;
+  private userVoicePitch: number;
   private deck = new Deck(this.translate);
   private autoflipSubscription: Subscription;
 
@@ -94,6 +104,19 @@ export class DeckPage {
     } else {
       this.startFresh();
     }
+
+    this.userVoiceType = (
+      await this.repo.localStorageCheck(lsKeyVoiceType)
+    ).value;
+    this.userVoicePitch = Number.parseFloat(
+      (await this.repo.localStorageCheck(lsKeyVoicePitch)).value
+    );
+    this.userVoiceSpeed = Number.parseFloat(
+      (await this.repo.localStorageCheck(lsKeyVoiceSpeed)).value
+    );
+    this.userVoiceVolume = Number.parseFloat(
+      (await this.repo.localStorageCheck(lsKeyVoiceVolume)).value
+    );
   }
 
   public async ionViewDidLeave(): Promise<void> {
@@ -252,7 +275,14 @@ export class DeckPage {
     setTimeout(async () => {
       flipIn.play().then();
       if (this.voice) {
-        this.currentCard.speak().then();
+        this.currentCard
+          .speak(
+            this.userVoiceType,
+            this.userVoiceSpeed,
+            this.userVoicePitch,
+            this.userVoiceVolume
+          )
+          .then();
       }
       this.deckStatus = this.deck.status;
 

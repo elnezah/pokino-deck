@@ -1,6 +1,7 @@
 import { TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
 import { Card } from '../shared/card';
+import { DataRepositoryService } from './data-repository.service';
 
 @Injectable({
   providedIn: 'root',

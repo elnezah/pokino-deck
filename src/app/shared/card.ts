@@ -12,7 +12,7 @@ export class Card {
 
   public constructor(private translate: TranslateService) {}
 
-  public async speak(): Promise<void> {
+  public async speak(lang?: string, rate = 1, pitch = 1, volume = 1): Promise<void> {
     if (!this.suit || this.cardNumber == null) {
       return;
     }
@@ -26,15 +26,17 @@ export class Card {
       card_suit: this.translate.instant('CARD.SUITS.' + this.suit),
     });
 
-    const lang = this.translate.currentLang === 'es' ? 'es-ES' : 'en-GB';
-
+    // Select user preferred voice type, if none, infer from current language
+    if (!lang) {
+      lang = this.translate.currentLang === 'es' ? 'es-ES' : 'en-GB';
+    }
 
     await TextToSpeech.speak({
       text,
       lang,
-      rate: 1.0,
-      pitch: 1.0,
-      volume: 1.0,
+      rate,
+      pitch,
+      volume,
       category: 'ambient',
     });
   }

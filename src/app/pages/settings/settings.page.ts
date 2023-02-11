@@ -3,6 +3,8 @@ import {
   DataRepositoryService,
   lsKeyAutoflipTime,
   lsKeyUserLanguage,
+  lsKeyVoicePitch,
+  lsKeyVoiceSpeed,
   lsKeyVoiceType,
   lsKeyVoiceVolume,
 } from './../../services/data-repository.service';
@@ -50,10 +52,13 @@ export class SettingsPage implements OnInit {
     const componentProps = {
       userLanguage: (await this.repo.localStorageCheck(lsKeyUserLanguage))
         .value,
-      voiceSettings: {
-        volume: (await this.repo.localStorageCheck(lsKeyVoiceVolume)).value,
-        type: (await this.repo.localStorageCheck(lsKeyVoiceType)).value,
-      },
+      userVoiceType: (await this.repo.localStorageCheck(lsKeyVoiceType)).value,
+      userVoiceVolume: (await this.repo.localStorageCheck(lsKeyVoiceVolume))
+        .value,
+      userVoicePitch: (await this.repo.localStorageCheck(lsKeyVoicePitch))
+        .value,
+      userVoiceSpeed: (await this.repo.localStorageCheck(lsKeyVoiceSpeed))
+        .value,
     };
 
     const modal = await this.modalController.create({
@@ -64,21 +69,30 @@ export class SettingsPage implements OnInit {
     await modal.present();
     const res = await modal.onDidDismiss();
 
+    // If user cancelled, restore language in use and exit
     if (res.role === 'cancel') {
+      await this.translate
+        .use(
+          (await localStorage.getItem(lsKeyUserLanguage)) ??
+            this.translate.getBrowserLang()
+        )
+        .toPromise();
       return;
     }
 
     await this.repo.localStorageSet(lsKeyUserLanguage, res.data.userLanguage);
-    if (res.data.userLanguage) {
-      this.translate.use(res.data.userLanguage);
-    }
     await this.repo.localStorageSet(
       lsKeyVoiceVolume,
-      res.data.voiceSettings?.volume?.value
+      (res.data.voiceVolume as number).toString()
     );
     await this.repo.localStorageSet(
-      lsKeyVoiceType,
-      res.data.voiceSettings?.type?.value
+      lsKeyVoicePitch,
+      (res.data.voicePitch as number).toString()
     );
+    await this.repo.localStorageSet(
+      lsKeyVoiceSpeed,
+      (res.data.userVoiceSpeed as number).toString()
+    );
+    await this.repo.localStorageSet(lsKeyVoiceType, res.data.voiceType);
   }
 }

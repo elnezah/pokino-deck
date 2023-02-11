@@ -1,3 +1,4 @@
+import { DataRepositoryService } from './../services/data-repository.service';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Card, Suit } from './card';
@@ -58,6 +59,7 @@ export class Deck {
 
   /**
    * Moves the pointer one forward and returns the played card
+   *
    * @returns the played card
    */
   public drawOne(): Card {

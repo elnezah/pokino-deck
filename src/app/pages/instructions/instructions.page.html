@@ -20,7 +20,11 @@
     <!-- Rules -->
     <ion-accordion>
       <ion-item slot="header">
-        {{'INSTRUCTIONS.title_rules' | translate | uppercase}}
+        <ion-label>
+          <h1>
+            {{'INSTRUCTIONS.title_rules' | translate | uppercase}}
+          </h1>
+        </ion-label>
       </ion-item>
       <ion-text color="dark" slot="content">
         <ol>
@@ -34,7 +38,11 @@
     <!-- Notes -->
     <ion-accordion>
       <ion-item slot="header">
-        {{'INSTRUCTIONS.title_clarifications' | translate | uppercase}}
+        <ion-label>
+          <h1>
+            {{'INSTRUCTIONS.title_clarifications' | translate | uppercase}}
+          </h1>
+        </ion-label>
       </ion-item>
       <ion-text color="medium" slot="content">
         <h3>
@@ -51,15 +59,19 @@
     <!-- Prizes -->
     <ion-accordion>
       <ion-item slot="header">
-        {{'INSTRUCTIONS.PRIZES.title' | translate | uppercase}}
+        <ion-label>
+          <h1>
+            {{'INSTRUCTIONS.PRIZES.title' | translate | uppercase}}
+          </h1>
+        </ion-label>
       </ion-item>
 
       <div slot="content">
         <ion-card *ngFor="let prize of prizes">
           <ion-card-header>
-            <ion-card-title>
+            <ion-title>
               {{prize.titleKey| translate | uppercase}}
-            </ion-card-title>
+            </ion-title>
           </ion-card-header>
 
           <ion-card-content>

@@ -41,8 +41,10 @@
       "screen_title": "Language and voice",
       "card_title_language": "Language",
       "app_language": "App language",
+      "app_voice": "App voice",
       "device_language_name": "Device's",
-      "placeholder_user_language_select": "Seleccione un idioma"
+      "placeholder_user_language_select": "Seleccione un idioma",
+      "button_test_voice":"Test voice"
     }
   },
   "MENU": {

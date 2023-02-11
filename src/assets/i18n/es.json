@@ -41,9 +41,11 @@
     "LANGUAGE_VOICE": {
       "screen_title": "Idioma y voz",
       "app_language": "Idioma de la app",
+      "app_voice": "Voz",
       "device_language_name": "del dispositivo",
       "placeholder_user_language_select": "Seleccione un idioma",
-      "card_title_language": "Idioma"
+      "card_title_language": "Idioma",
+      "button_test_voice":"Probar voz"
     }
   },
   "MENU": {

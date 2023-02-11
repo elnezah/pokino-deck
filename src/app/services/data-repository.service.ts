@@ -18,6 +18,16 @@ export const lsKeyUserLanguage = 'lsKeyUserLanguage';
 export const lsKeyVoiceVolume = 'lsKeyVoiceVolume';
 
 /**
+ * The speed (rate) for the voice that tells the cards
+ */
+export const lsKeyVoiceSpeed = 'lsKeyVoiceSpeed';
+
+/**
+ * The pitch for the voice that tells the cards
+ */
+export const lsKeyVoicePitch = 'lsKeyVoicePitch';
+
+/**
  * The volume for TTS voice type
  */
 export const lsKeyVoiceType = 'lsKeyVoiceType';

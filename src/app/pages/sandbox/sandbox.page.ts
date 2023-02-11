@@ -1,3 +1,4 @@
+import { DataRepositoryService } from './../../services/data-repository.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Deck } from './../../shared/deck';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,10 @@ export class SandboxPage implements OnInit {
 
   public deck: Deck;
 
-  constructor(private translate: TranslateService) { }
+  constructor(
+    private repo: DataRepositoryService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit() {
     this.deck = new Deck(this.translate);
@@ -22,5 +26,4 @@ export class SandboxPage implements OnInit {
     this.deck.drawOne();
     this.deck.drawOne();
   }
-
 }
