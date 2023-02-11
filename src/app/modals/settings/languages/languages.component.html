@@ -24,7 +24,7 @@
     </ion-select>
   </ion-item>
 
-  <!-- Voices -->
+  <!-- Voice type -->
   <ion-item lines="none">
     <ion-label>
       {{'SETTINGS.LANGUAGE_VOICE.app_voice' | translate}}
@@ -36,6 +36,7 @@
 
   </ion-item>
 
+  <!-- Voice volume-->
   <ion-item lines="none">
     <ion-range min="1" max="10" pin="true" snaps="true" step="1" ticks="true"
       [value]="userVoiceVolume != null ?  userVoiceVolume * 10 : 10" (ionChange)="onVolumeChange($event)">
@@ -44,16 +45,18 @@
     </ion-range>
   </ion-item>
 
+  <!-- Voice velocity -->
   <ion-item lines="none">
-    <ion-range min="1" max="10" pin="true" snaps="true" step="1" ticks="true"
+    <ion-range min="1" max="25" pin="true" snaps="true" step="1" ticks="true"
       [value]="userVoiceSpeed != null ?  userVoiceSpeed * 10 : 10" (ionChange)="onVoiceSpeed($event)">
       <ion-icon name="walk" slot="start"></ion-icon>
       <ion-icon name="rocket" slot="end"></ion-icon>
     </ion-range>
   </ion-item>
 
+  <!-- Voice pitch -->
   <ion-item lines="none">
-    <ion-range min="1" max="10" pin="true" snaps="true" step="1" ticks="true"
+    <ion-range min="1" max="25" pin="true" snaps="true" step="1" ticks="true"
       [value]="userVoicePitch != null ?  userVoicePitch * 10 : 10" (ionChange)="onVoicePitch($event)">
       <ion-icon name="arrow-down" slot="start"></ion-icon>
       <ion-icon name="arrow-up" slot="end"></ion-icon>

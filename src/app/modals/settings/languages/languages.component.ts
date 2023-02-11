@@ -121,10 +121,13 @@ export class LanguagesComponent implements OnInit, OnChanges {
   }
 
   private async setTtsVoicesForUserLang(): Promise<void> {
-    const ttsLanguages = await TextToSpeech.getSupportedLanguages();
+    const ttsVoices = await TextToSpeech.getSupportedVoices();
 
-    this.ttsVoicesForUserLang = ttsLanguages.languages.filter((e) =>
-      e.startsWith(this.userLanguage)
-    );
+    // Select the available languages for the given voice
+    this.ttsVoicesForUserLang = ttsVoices.voices.filter((e) =>
+      e.voiceURI.startsWith(this.userLanguage)
+    ).map(e => e.lang);
+    // Remove duplicates
+    this.ttsVoicesForUserLang = Array.from(new Set(this.ttsVoicesForUserLang));
   }
 }
