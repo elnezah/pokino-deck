@@ -1,4 +1,4 @@
-import { ComponentsModule } from './components/components.module';
+import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -28,7 +28,7 @@ export const createTranslateLoader = (http: HttpClient) =>
       },
     }),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AppVersion],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

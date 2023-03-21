@@ -44,7 +44,7 @@
       "app_voice": "App voice",
       "device_language_name": "Device's",
       "placeholder_user_language_select": "Seleccione un idioma",
-      "button_test_voice":"Test voice"
+      "button_test_voice": "Test voice"
     }
   },
   "MENU": {
@@ -59,10 +59,15 @@
   },
   "ABOUT": {
     "window_title": "About",
-    "text_copyright_pokino": "© Copyright 2017 POKINO.",
+    "text_copyright_pokino": "© Copyright 2023 POKINO.",
     "text_marca_registrada": "Trade mark and game registered in Spain by Angel Luis Friazza Rodríguez and Joaquín Cuesta León.",
-    "label_app_developer": "App development",
-    "text_jose_a_garces": "Jose A. Garcés"
+    "label_app_developer": "Development",
+    "text_jose_a_garces": "Jose A. Garcés",
+    "text_description": "Welcome to the official companion app for El Pokino, the beloved tabletop game that's been entertaining players for years!\n\nOur app is designed to enhance your gaming experience by providing you with useful tools and features that make gameplay even more exciting and engaging.",
+    "label_privacy_policy": "Privacy policy",
+    "text_privacy_policy": "This application does not collect or transmit any user data. We do not store personal information, nor do we send data to third parties.",
+    "label_copyright": "Intellectual property",
+    "label_version": "Version"
   },
   "DECK": {
     "window_title": "Deck",

@@ -1,5 +1,6 @@
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
 
 @Component({
   selector: 'app-about',
@@ -9,7 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class AboutPage implements OnInit {
   private static readonly TAG = 'AboutPage';
 
-  public constructor(private modalController: ModalController) {}
+  public appVersionNumber: string;
+  public appVersionCode: string | number;
 
-  public ngOnInit() {}
+  public constructor(
+    private modalController: ModalController,
+    private appVersion: AppVersion,
+    private platform: Platform
+  ) {}
+
+  public async ngOnInit(): Promise<void> {
+    if (this.platform.is('cordova')) {
+      this.appVersionNumber = await this.appVersion.getVersionNumber();
+      this.appVersionCode = await this.appVersion.getVersionCode();
+    } else {
+      console.warn(AboutPage.TAG, 'Not running on a device');
+      this.appVersionNumber = '0.0.0';
+      this.appVersionCode = '0';
+    }
+  }
 }

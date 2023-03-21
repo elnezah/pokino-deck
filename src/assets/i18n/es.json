@@ -45,7 +45,7 @@
       "device_language_name": "del dispositivo",
       "placeholder_user_language_select": "Seleccione un idioma",
       "card_title_language": "Idioma",
-      "button_test_voice":"Probar voz"
+      "button_test_voice": "Probar voz"
     }
   },
   "MENU": {
@@ -60,10 +60,15 @@
   },
   "ABOUT": {
     "window_title": "Acerca de...",
-    "text_copyright_pokino": "© Copyright 2017 POKINO.",
+    "text_copyright_pokino": "© Copyright 2023 POKINO.",
     "text_marca_registrada": "Marca y juego registrados en España por Angel Luis Friazza Rodríguez y Joaquín Cuesta León.",
-    "label_app_developer": "Desarrollo App",
-    "text_jose_a_garces": "Jose A. Garcés"
+    "label_app_developer": "Desarrollo",
+    "text_jose_a_garces": "Jose A. Garcés",
+    "text_description": "¡Bienvenido a la aplicación oficial complementaria para El Pokino, el querido juego de mesa que ha estado entreteniendo a jugadores durante años!\n\nNuestra aplicación está diseñada para mejorar tu experiencia de juego al proporcionarte herramientas y funciones útiles que hacen que el juego sea aún más emocionante y atractivo.",
+    "label_privacy_policy": "Política de privacidad",
+    "text_privacy_policy": "Esta aplicación no recopila ni transmite ningún tipo de datos de los usuarios. No almacenamos información personal, ni enviamos datos a terceros.",
+    "label_copyright": "Propiedad Intelectual",
+    "label_version": "Versión"
   },
   "DECK": {
     "window_title": "Baraja",

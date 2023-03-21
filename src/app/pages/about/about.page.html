@@ -9,18 +9,51 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-item class="ion-no-padding">
-    <ion-text color="dark">
-      <h1>{{ 'ABOUT.text_copyright_pokino' | translate }}</h1>
-      {{ 'ABOUT.text_marca_registrada' | translate }}
-    </ion-text>
-  </ion-item>
 
-  <ion-item class="ion-no-padding">
-    <ion-text color="dark">
-      <h1>{{ 'ABOUT.label_app_developer' | translate }}</h1>
+
+<ion-content class="ion-padding">
+  <div id="app-name-block">
+    <h1>El Pokino App</h1>
+    <div id="app-version-block">
+      {{ 'ABOUT.label_version' | translate }} {{ appVersionNumber }} ({{ appVersionCode }})
+    </div>
+    <div id="app-description">
+      {{ 'ABOUT.text_description' | translate }}
+    </div>
+  </div>
+
+  <!-- Privacy policy block -->
+  <div id="privacy-policy-block">
+    <h4>
+      {{ 'ABOUT.label_privacy_policy' | translate }}
+    </h4>
+
+    <div>
+      {{ 'ABOUT.text_privacy_policy' | translate }}
+    </div>
+  </div>
+
+  <!-- Copyright block -->
+  <div class="copyright-container">
+    <h4>
+      {{ 'ABOUT.label_copyright' | translate }}
+    </h4>
+
+    <div class="copyright-container">
+      {{ 'ABOUT.text_marca_registrada' | translate }}
+    </div>
+
+    <div class="copyright-container">
+      {{ 'ABOUT.text_copyright_pokino' | translate }}
+    </div>
+  </div>
+
+  <div id="developer-block">
+    <ion-icon name="code-working-outline" size="large"></ion-icon>
+
+    <div>
+      {{ 'ABOUT.label_app_developer' | translate }}:
       {{ 'ABOUT.text_jose_a_garces' | translate }}
-    </ion-text>
-  </ion-item>
+    </div>
+  </div>
 </ion-content>
