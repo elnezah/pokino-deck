@@ -1,3 +1,3 @@
-<span class="card-container" *ngFor="let card of cardsToShow">
+<span class="card-container" *ngFor="let card of cardsToShow" [@slideInOut]>
   <app-card [card]="card"></app-card>
 </span>
