@@ -14,3 +14,15 @@
 ion-content {
   --background: url(../../../assets/img/deck-background.jpg) no-repeat center center / cover;
 }
+
+app-played-cards-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .8;
+}
+
+.hidden {
+  display: none;
+}

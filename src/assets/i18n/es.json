@@ -75,6 +75,7 @@
     "alert_message_restore_saved": "Hay una baraja ya iniciada. ¿Desea restaurar la baraja guardada o iniciar una baraja nueva?",
     "alert_button_restore": "Restaurar",
     "label_show_status": "Mostrar estado",
+    "label_show_played_card_strip": "Mostrar cartas jugadas",
     "label_voice": "Voz",
     "label_flip_auto": "Sacar automáticamente",
     "alert_button_new": "Nueva",

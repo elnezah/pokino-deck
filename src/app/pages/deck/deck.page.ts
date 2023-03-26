@@ -38,12 +38,13 @@ export class DeckPage {
   public showProgress = true;
   public voice = true;
   public pauseAutoflip = false;
+  public deck = new Deck(this.translate);
+  public showPlayedCards = false;
 
   private userVoiceType: string;
   private userVoiceSpeed: number;
   private userVoiceVolume: number;
   private userVoicePitch: number;
-  private deck = new Deck(this.translate);
   private autoflipSubscription: Subscription;
 
   public constructor(
@@ -187,7 +188,7 @@ export class DeckPage {
 
   public async showHelp(subject: 'autoflipBar' | 'progressBar'): Promise<void> {
     let message: string;
-    let duration = 2000;
+    const duration = 2000;
     switch (subject) {
       case 'autoflipBar':
         message = this.translate.instant('DECK.toast_autoflip_bar_help');

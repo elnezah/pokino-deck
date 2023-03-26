@@ -1,0 +1,30 @@
+:host {
+  background: #000;
+  height: 8em;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .8em;
+}
+
+.card-container {
+  width: 5em;
+  min-width: 5em;
+  overflow: hidden;
+  border-radius: .3em;
+}
+
+// Classes for tablet size
+@media (min-width: 768px) {
+  :host {
+    height: 10em;
+  }
+
+  .card-container {
+    width: 6em;
+    min-width: 6em;
+  }
+}

@@ -27,6 +27,11 @@
           </ion-item>
 
           <ion-item class="ion-margin-top">
+            <ion-label>{{'DECK.label_show_played_card_strip' | translate}}</ion-label>
+            <ion-checkbox [checked]="showPlayedCards" (ionChange)="showPlayedCards = !showPlayedCards"></ion-checkbox>
+          </ion-item>
+
+          <ion-item class="ion-margin-top">
             <ion-label>{{'DECK.label_voice' | translate}}</ion-label>
             <ion-checkbox [checked]="voice" (ionChange)="voice = !voice"></ion-checkbox>
           </ion-item>
@@ -49,6 +54,9 @@
     [ngStyle]="{'background-image': deckStatus?.remainingCards ? 'url(\'../../assets/img/cards/reverso.png\')' : null}">
     <app-card id="currentCard" [card]="currentCard" (click)="onClickOnCard()" style="z-index: 99999;"></app-card>
   </div>
+
+  <app-played-cards-strip [ngClass]="{'hidden': !showPlayedCards}" [cardsArray]="deck.asCardArray()"
+    [pointer]="deck.pointer"></app-played-cards-strip>
 </ion-content>
 
 <ion-footer>
